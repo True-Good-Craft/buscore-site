@@ -1,0 +1,203 @@
+/* ===========================
+   BUS Core — Base Reset
+=========================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #0f1113;
+    color: #e5e7eb;
+}
+
+/* ===========================
+   Layout
+=========================== */
+
+header {
+    border-bottom: 1px solid #222;
+    padding: 1rem 2rem;
+}
+
+.header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 32px;
+    width: auto;
+    display: block;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.95rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #9ca3af;
+    transition: color 0.2s ease;
+}
+
+nav a.active,
+nav a:hover {
+    color: #ffffff;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+footer {
+    border-top: 1px solid #222;
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #9ca3af;
+}
+
+/* ===========================
+   Typography
+=========================== */
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+}
+
+h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+p {
+    margin: 0.5rem 0;
+}
+
+ul {
+    padding-left: 1.2rem;
+}
+
+li {
+    margin-bottom: 0.4rem;
+}
+
+/* ===========================
+   Hero
+=========================== */
+
+.hero {
+    margin-bottom: 5rem;
+}
+
+.hero strong {
+    font-weight: 600;
+}
+
+/* Applied only to the primary CTA to avoid styling the changelog link */
+.hero .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.4rem;
+    background-color: #ffffff;
+    color: #0f1113;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    transition: opacity 0.2s ease;
+}
+
+.hero .btn:hover {
+    opacity: 0.85;
+}
+
+/* ===========================
+   Links
+=========================== */
+
+a {
+    color: #4da3ff;
+}
+
+a:hover {
+    color: #7cc0ff;
+}
+
+/* ===========================
+   Utility
+=========================== */
+
+code {
+    background-color: #1a1c1f;
+    color: #d1d5db;
+    padding: 0.2rem 0.4rem;
+    font-family: "JetBrains Mono", "Menlo", monospace;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 768px) {
+    main {
+        padding: 3rem 1.5rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    nav {
+        gap: 1.2rem;
+        font-size: 0.85rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
