@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://yourdomain.com/index.html</loc></url>
-  <url><loc>https://yourdomain.com/downloads.html</loc></url>
-  <url><loc>https://yourdomain.com/changelog.html</loc></url>
-  <url><loc>https://yourdomain.com/trust.html</loc></url>
-  <url><loc>https://yourdomain.com/privacy.html</loc></url>
-  <url><loc>https://yourdomain.com/license.html</loc></url>
+  <url><loc>https://buscore.ca/index.html</loc></url>
+  <url><loc>https://buscore.ca/downloads.html</loc></url>
+  <url><loc>https://buscore.ca/changelog.html</loc></url>
+  <url><loc>https://buscore.ca/trust.html</loc></url>
+  <url><loc>https://buscore.ca/contact.html</loc></url>
+  <url><loc>https://buscore.ca/privacy.html</loc></url>
+  <url><loc>https://buscore.ca/license.html</loc></url>
 </urlset>

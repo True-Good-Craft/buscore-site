@@ -2,86 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BUS Core | Trust Model</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUS Core | Trust</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" href="/assets/Logo.png">
     <meta name="description" content="How BUS Core handles data, privacy, and security.">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "22e6e7aa34d34328bd7219de69f5439c"}'></script><!-- End Cloudflare Web Analytics -->
 <header>
     <nav>
         <a href="index.html">Home</a>
         <a href="downloads.html">Downloads</a>
         <a href="changelog.html">Changelog</a>
-        <a href="trust.html">Trust</a>
+        <a href="trust.html" class="active">Trust</a>
+        <a href="contact.html">Contact</a>
     </nav>
 </header>
 
 <main>
 
-<section>
-    <h1>Trust Model</h1>
-</section>
+<h1>Trust & Security</h1>
 
-<section>
+<section class="trust-item">
     <h2>Local-First Architecture</h2>
-    <p>
-        BUS Core runs entirely on your machine.
-        Database: SQLite.
-        No required external services.
-    </p>
+    <p>BUS Core runs entirely on your machine. Database: SQLite. No required external services.</p>
 </section>
 
-<section>
+<section class="trust-item">
     <h2>No Telemetry</h2>
-    <p>
-        No background analytics.
-        No usage tracking.
-        No hidden calls home.
-    </p>
+    <p>No background analytics. No usage tracking. No hidden calls home.</p>
 </section>
 
-<section>
+<section class="trust-item">
     <h2>Network Surface</h2>
-    <p>
-        Default bind: <code>127.0.0.1:8765</code>.
-        Not publicly exposed unless explicitly configured.
-    </p>
+    <p>Default bind: <code>127.0.0.1:8765</code>. Not publicly exposed unless explicitly configured.</p>
 </section>
 
-<section>
+<section class="trust-item">
     <h2>Data Ownership</h2>
-    <p>
-        Your database resides in your user directory.
-        You control backups and exports.
-    </p>
+    <p>Your database resides in your user directory. You control backups and exports.</p>
 </section>
 
-<section>
+<section class="trust-item">
     <h2>Backups</h2>
-    <p>
-        Encrypted export via AES-GCM.
-        Portable, self-contained database files.
-    </p>
+    <p>Encrypted export via AES-GCM. Portable, self-contained database files.</p>
 </section>
 
-<section>
+<section class="trust-item">
     <h2>License</h2>
-    <p>
-        Open-core under AGPL.
-        Inspectable. Auditable. Self-hostable.
-    </p>
+    <p>Open Source under AGPL. Inspected. Auditable. Self-hostable.
+	Binaries are digitally signed. </p>
 </section>
 
 </main>
 
 <footer>
-    <p>&copy; 2026 True Good Craft — BUS Core</p>
-    <p>
-        <a href="privacy.html">Privacy</a> |
-        <a href="license.html">License</a>
-    </p>
+    <div class="footer-content">
+        <p>True Good Craft Inc.</p>
+        <p>
+            <a href="privacy.html">Privacy</a> &middot;
+            <a href="license.html">License</a>
+        </p>
+        <p class="copyright">&copy; 2026 True Good Craft Inc.</p>
+    </div>
 </footer>
 
 </body>

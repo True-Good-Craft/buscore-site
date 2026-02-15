@@ -3,97 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" href="/assets/Logo.png">
+    <meta name="theme-color" content="#0d0d0d">
     <title>BUS Core | Local-First ERP for Small Workshops</title>
     <meta name="description" content="Local-first inventory and manufacturing system for small workshops. No SaaS. No telemetry. Your data stays on your machine.">
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "22e6e7aa34d34328bd7219de69f5439c"}'></script><!-- End Cloudflare Web Analytics -->
+<header>
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="downloads.html">Downloads</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="trust.html">Trust</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
 
-    <header>
-        <div class="container header-layout">
-            <div class="logo-area">
-                <img src="/assets/logo.png" alt="BUS Core Logo" class="logo" onerror="this.style.display='none';">
-            </div>
-            <nav>
-                <a href="index.html" class="active">Home</a>
-                <a href="downloads.html">Downloads</a>
-                <a href="changelog.html">Changelog</a>
-                <a href="trust.html">Trust</a>
-            </nav>
-        </div>
-    </header>
+<main>
 
-    <main class="container">
+<section class="hero">
+    <img src="assets/logo.png" alt="BUS Core" class="logo">
+    <h1>BUS Core</h1>
+    <p class="subtitle">Local-first ERP for small workshops</p>
+    <p class="tagline">Tracks inventory and manufacturing without the cloud.</p>
+    
+    <div class="actions">
+        <a href="downloads.html" class="btn">Download Latest Version</a>
+        <a href="changelog.html">View Changelog</a>
+    </div>
+</section>
 
-        <section class="hero">
-            <h1>BUS Core</h1>
-            <p class="subtitle">Local-first ERP for small workshops</p>
-            <p class="description">
-                Tracks inventory and manufacturing without the cloud. <br>
-                No telemetry. No SaaS trap.
-            </p>
-            
-            <div class="cta-group">
-                <a href="downloads.html" class="btn-primary">Download v0.10.6</a>
-                <a href="changelog.html" class="link-secondary">View Changelog</a>
-            </div>
-        </section>
+<hr>
 
-        <hr>
+<section class="two-col">
+    <div>
+        <h2>What It Does</h2>
+        <ul>
+            <li>FIFO inventory tracking</li>
+            <li>Manufacturing recipes and production runs</li>
+            <li>Real gross profit via inventory-linked COGS</li>
+            <li>Local cash event tracking</li>
+            <li>Encrypted database export</li>
+            <li>REST API for integrations</li>
+        </ul>
+    </div>
+    <div>
+        <h2>What It Does Not Do</h2>
+        <ul>
+            <li>No forced user accounts</li>
+            <li>No background telemetry</li>
+            <li>No subscription billing</li>
+            <li>No cloud sync or remote access</li>
+            <li>No remote kill switch</li>
+        </ul>
+    </div>
+</section>
 
-        <section class="features-grid">
-            <div class="col">
-                <h2>What It Does</h2>
-                <ul>
-                    <li>FIFO inventory tracking</li>
-                    <li>Manufacturing recipes &amp; production runs</li>
-                    <li>Real gross profit via inventory-linked COGS</li>
-                    <li>Local cash event tracking</li>
-                    <li>Encrypted database export</li>
-                </ul>
-            </div>
-            <div class="col">
-                <h2>What It Does Not Do</h2>
-                <ul>
-                    <li>No forced user accounts</li>
-                    <li>No background telemetry</li>
-                    <li>No subscription billing</li>
-                    <li>No remote kill switch</li>
-                </ul>
-            </div>
-        </section>
+<hr>
 
-        <hr>
+<section>
+    <h2>Philosophy</h2>
+    <p>
+        Software should not own your business. BUS Core is opinionated: inventory is ledger-driven, cost is derived from truth, and accounting bloat stays out. It is designed for a 1&ndash;10 person shop that prefers control over convenience.
+    </p>
+</section>
 
-        <section class="text-block">
-            <h2>Philosophy</h2>
-            <p>
-                Software should not own your business. BUS Core is opinionated: inventory is ledger-driven, cost is derived from truth, and accounting bloat stays out. It is designed for a 1–10 person shop that prefers control over convenience.
-            </p>
-        </section>
+<section>
+    <h2>Technical Overview</h2>
+    <table class="tech-table">
+        <tr><td>Backend:</td><td>SQLite (WAL mode)</td></tr>
+        <tr><td>API:</td><td>FastAPI, local-only bind</td></tr>
+        <tr><td>Current Version:</td><td>0.10.6 (Beta)</td></tr>
+        <tr><td>License:</td><td>AGPL (Open Source)</td></tr>
+        <tr><td>Telemetry:</td><td>None</td></tr>
+    </table>
+</section>
 
-        <section class="text-block">
-            <h2>Technical Overview</h2>
-            <div class="tech-details">
-                <p><span class="label">Current Version:</span> 0.10.6 (Beta)</p>
-                <p><span class="label">Backend:</span> Python 3.12 / FastAPI</p>
-                <p><span class="label">Database:</span> SQLite (Wal mode)</p>
-                <p><span class="label">License:</span> AGPL (Open-core)</p>
-            </div>
-        </section>
+</main>
 
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 True Good Craft Inc.</p>
-            <nav class="footer-nav">
-                <a href="privacy.html">Privacy</a>
-                <span class="separator">|</span>
-                <a href="license.html">License</a>
-            </nav>
-        </div>
-    </footer>
+<footer>
+    <div class="footer-content">
+        <p>True Good Craft Inc.</p>
+        <p>
+            <a href="privacy.html">Privacy</a> &middot;
+            <a href="license.html">License</a>
+        </p>
+        <p class="copyright">&copy; 2026 True Good Craft Inc.</p>
+    </div>
+</footer>
 
 </body>
 </html>

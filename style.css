@@ -1,0 +1,376 @@
+/* BUS Core — Layout System */
+
+/* ============================
+   Global Reset
+   ============================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    background-color: #0d0d0d;
+    color: #d4d4d4;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* ============================
+   Layout Container
+   ============================ */
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ============================
+   Header & Navigation
+   ============================ */
+
+header {
+    border-bottom: 1px solid #222;
+    padding: 1rem 0;
+}
+
+header nav {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+header nav a {
+    color: #888;
+    text-decoration: none;
+    margin-right: 1.25rem;
+    font-size: 0.9rem;
+}
+
+header nav a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+header nav a.active {
+    color: #fff;
+}
+
+/* ============================
+   Main Content
+   ============================ */
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #222;
+    margin: 2rem 0;
+}
+
+/* ============================
+   Typography
+   ============================ */
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 1.5rem;
+}
+
+h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 1rem;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ccc;
+    margin: 1.5rem 0 0.75rem;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+ul, ol {
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+}
+
+li {
+    margin-bottom: 0.35rem;
+}
+
+a {
+    color: #7cb3ff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #a8cdff;
+    text-decoration: underline;
+}
+
+code {
+    font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", monospace;
+    font-size: 0.85em;
+    background-color: #1a1a1a;
+    padding: 0.15rem 0.3rem;
+}
+
+/* ============================
+   Hero Section (Index Only)
+   ============================ */
+
+.hero {
+    text-align: center;
+    padding: 1.5rem 0 0.5rem;
+}
+
+.hero .logo {
+    width: 90px;
+    height: auto;
+    margin-bottom: 0.75rem;
+    opacity: 0.9;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+.hero .subtitle {
+    font-size: 1.1rem;
+    color: #aaa;
+    margin: 0 0 0.75rem;
+}
+
+.hero .tagline {
+    font-size: 1rem;
+    color: #888;
+    margin: 0 0 1.5rem;
+}
+
+.hero .actions {
+    margin-top: 1.5rem;
+}
+
+.hero .actions a {
+    color: #7cb3ff;
+    margin: 0 0.75rem;
+}
+
+.hero .actions a:hover {
+    text-decoration: underline;
+}
+
+.hero .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.hero .btn:hover {
+    background-color: #333;
+    text-decoration: none;
+}
+
+/* ============================
+   Two Column Layout
+   ============================ */
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+/* ============================
+   Technical Table
+   ============================ */
+
+.tech-table {
+    width: auto;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.tech-table td {
+    padding: 0.3rem 0;
+    vertical-align: top;
+}
+
+.tech-table td:first-child {
+    width: 140px;
+    color: #888;
+    padding-right: 1rem;
+}
+
+/* ============================
+   Downloads Page
+   ============================ */
+
+.download-latest {
+    margin: 2rem 0;
+}
+
+.download-latest h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.version-meta {
+    color: #888;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.checksum-block {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: #141414;
+    border: 1px solid #222;
+}
+
+.checksum-block label {
+    display: block;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.checksum-block code {
+    display: block;
+    font-size: 0.85rem;
+    word-break: break-all;
+    background: transparent;
+    padding: 0;
+}
+
+.signing-note {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* ============================
+   Changelog
+   ============================ */
+
+.release {
+    margin-bottom: 2rem;
+}
+
+.release h2 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.release-date {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+/* ============================
+   Trust Page
+   ============================ */
+
+.trust-item {
+    margin-bottom: 1.5rem;
+}
+
+.trust-item h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.trust-item p {
+    margin: 0;
+    color: #aaa;
+}
+
+/* ============================
+   Footer
+   ============================ */
+
+footer {
+    border-top: 1px solid #222;
+    padding: 2rem 1.5rem;
+    margin-top: 2rem;
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.footer-content p {
+    margin: 0 0 0.5rem;
+}
+
+.footer-content a {
+    color: #888;
+}
+
+.footer-content a:hover {
+    color: #aaa;
+}
+
+.footer-content .copyright {
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 1rem;
+}
+
+/* ============================
+   Responsive
+   ============================ */
+
+@media (max-width: 600px) {
+    .two-col {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero .actions a {
+        display: block;
+        margin: 0.5rem 0;
+    }
+    
+    header nav a {
+        margin-right: 1rem;
+    }
+}
