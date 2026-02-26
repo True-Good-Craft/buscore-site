@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BUS Core | Downloads</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="apple-touch-icon" href="/assets/Logo.png">
     <meta name="description" content="Official BUS Core releases. Verify integrity using SHA256 checksums and digital signatures.">
     <link rel="icon" href="favicon.ico">
@@ -27,17 +26,19 @@
 <h1>Downloads</h1>
 
 <section class="download-latest">
-    <h2>BUS Core v0.11.0</h2>
-    <p class="version-meta">Released: 2026-02-25</p>
+    <h2 id="latest-version-title">BUS Core v0.11.0</h2>
+    <p class="version-meta" id="latest-release-date">Released: 2026-02-25</p>
     
     <p>
-        <a href="https://pub-9908523f6c644d55a2e018f04240340f.r2.dev/releases/0.11.0/TGC-BUS-Core-0.11.0.zip" class="btn">Download v0.11.0</a>
+        <a id="latest-download-link" href="https://pub-9908523f6c644d55a2e018f04240340f.r2.dev/releases/0.11.0/TGC-BUS-Core-0.11.0.zip" class="btn">Download v0.11.0</a>
     </p>
+    <p class="version-meta">Release notes: <a id="latest-release-notes" href="https://buscore.ca/releases/0.11.0/">View notes</a></p>
     
     <div class="checksum-block">
         <label>SHA256 Checksum</label>
-        <code>9C32A0AF9C8E3A18D7F0764AD6B3D39F5EC44B3C21736C918C2450A2F5E599FD</code>
+        <code id="latest-sha256">9C32A0AF9C8E3A18D7F0764AD6B3D39F5EC44B3C21736C918C2450A2F5E599FD</code>
     </div>
+    <p class="version-meta" id="latest-size-bytes">Size: 78998867 bytes</p>
     
     <p class="signing-note">Binaries are digitally signed. Verify signatures before installation.</p>
 </section>
@@ -138,6 +139,63 @@
         <p class="copyright">&copy; 2026 True Good Craft Inc.</p>
     </div>
 </footer>
+
+<script>
+(() => {
+    const titleEl = document.getElementById('latest-version-title');
+    const downloadEl = document.getElementById('latest-download-link');
+    const shaEl = document.getElementById('latest-sha256');
+    const sizeEl = document.getElementById('latest-size-bytes');
+    const notesEl = document.getElementById('latest-release-notes');
+
+    fetch('/manifest/core/stable.json', { cache: 'no-store' })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Manifest fetch failed');
+            }
+            return response.json();
+        })
+        .then((manifest) => {
+            const latest = manifest && manifest.latest;
+            const download = latest && latest.download;
+            const sizeBytes = Number(latest && latest.size_bytes);
+            const hasRequired = latest
+                && typeof latest.version === 'string' && latest.version
+                && download
+                && typeof download.url === 'string' && download.url
+                && typeof download.sha256 === 'string' && download.sha256;
+
+            if (!hasRequired) {
+                return;
+            }
+
+            if (titleEl) {
+                titleEl.textContent = `BUS Core v${latest.version}`;
+            }
+
+            if (downloadEl) {
+                downloadEl.href = download.url;
+                downloadEl.textContent = `Download v${latest.version}`;
+            }
+
+            if (shaEl) {
+                shaEl.textContent = download.sha256;
+            }
+
+            if (sizeEl && Number.isFinite(sizeBytes) && sizeBytes > 0) {
+                const mb = (sizeBytes / (1024 * 1024)).toFixed(1);
+                sizeEl.textContent = `Size: ${mb} MB (${sizeBytes} bytes)`;
+            }
+
+            if (notesEl && typeof latest.release_notes_url === 'string' && latest.release_notes_url) {
+                notesEl.href = latest.release_notes_url;
+            }
+        })
+        .catch(() => {
+            // Fail-soft: keep hardcoded fallback values.
+        });
+})();
+</script>
 
 </body>
 </html>
