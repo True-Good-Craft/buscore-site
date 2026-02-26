@@ -1,0 +1,13 @@
+
+{
+  "min_supported": "0.11.0",
+  "latest": {
+    "version": "0.11.0",
+    "release_notes_url": "https://buscore.ca/releases/0.11.0/",
+    "download": {
+      "url": "https://pub-9908523f6c644d55a2e018f04240340f.r2.dev/releases/0.11.0/TGC-BUS-Core-0.11.0.zip",
+      "sha256": "REPLACE_WITH_64_CHARACTER_LOWERCASE_SHA256",
+      "size_bytes": 78998867
+    }
+  }
+}
