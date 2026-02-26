@@ -4,6 +4,7 @@
   "latest": {
     "version": "0.11.0",
     "release_notes_url": "https://buscore.ca/releases/0.11.0/",
+    "size_bytes": 78998867,
     "download": {
       "url": "https://pub-9908523f6c644d55a2e018f04240340f.r2.dev/releases/0.11.0/TGC-BUS-Core-0.11.0.zip",
       "sha256": "8512ADD0DCFDB3A88EC3AF21A51C324F3DFFA68CC5F365DB41278C4FB19A2CE4",

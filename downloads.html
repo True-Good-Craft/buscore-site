@@ -148,6 +148,11 @@
     const sizeEl = document.getElementById('latest-size-bytes');
     const notesEl = document.getElementById('latest-release-notes');
 
+    const formatSize = (bytes) => {
+        const mb = (bytes / (1024 * 1024)).toFixed(1);
+        return `Size: ${mb} MB (${bytes} bytes)`;
+    };
+
     fetch('/manifest/core/stable.json', { cache: 'no-store' })
         .then((response) => {
             if (!response.ok) {
@@ -159,11 +164,13 @@
             const latest = manifest && manifest.latest;
             const download = latest && latest.download;
             const sizeBytes = Number(latest && latest.size_bytes);
+            const downloadUrl = (download && download.url) || latest.url;
             const hasRequired = latest
                 && typeof latest.version === 'string' && latest.version
+                && typeof downloadUrl === 'string' && downloadUrl
                 && download
-                && typeof download.url === 'string' && download.url
-                && typeof download.sha256 === 'string' && download.sha256;
+                && typeof download.sha256 === 'string' && download.sha256
+                && Number.isFinite(sizeBytes) && sizeBytes > 0;
 
             if (!hasRequired) {
                 return;
@@ -174,7 +181,7 @@
             }
 
             if (downloadEl) {
-                downloadEl.href = download.url;
+                downloadEl.href = downloadUrl;
                 downloadEl.textContent = `Download v${latest.version}`;
             }
 
@@ -182,13 +189,17 @@
                 shaEl.textContent = download.sha256;
             }
 
-            if (sizeEl && Number.isFinite(sizeBytes) && sizeBytes > 0) {
-                const mb = (sizeBytes / (1024 * 1024)).toFixed(1);
-                sizeEl.textContent = `Size: ${mb} MB (${sizeBytes} bytes)`;
+            if (sizeEl) {
+                sizeEl.textContent = formatSize(sizeBytes);
             }
 
-            if (notesEl && typeof latest.release_notes_url === 'string' && latest.release_notes_url) {
-                notesEl.href = latest.release_notes_url;
+            if (notesEl) {
+                if (typeof latest.release_notes_url === 'string' && latest.release_notes_url) {
+                    notesEl.href = latest.release_notes_url;
+                    notesEl.style.removeProperty('display');
+                } else {
+                    notesEl.style.display = 'none';
+                }
             }
         })
         .catch(() => {
