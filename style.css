@@ -1,8 +1,17 @@
-/* BUS Core — Layout System */
+/* BUS Core Site Styles */
 
-/* ============================
-   Global Reset
-   ============================ */
+:root {
+    --page-bg: #eef2f3;
+    --surface: #ffffff;
+    --surface-alt: #f4f7f8;
+    --ink: #1d262d;
+    --muted: #4b5b67;
+    --line: #cfd9de;
+    --accent: #0e6778;
+    --accent-strong: #0a4f5e;
+    --code-bg: #162128;
+    --code-ink: #d9e4eb;
+}
 
 * {
     box-sizing: border-box;
@@ -14,104 +23,88 @@ html {
 
 body {
     margin: 0;
-    background-color: #0d0d0d;
-    color: #d4d4d4;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                 Roboto, "Helvetica Neue", Arial, sans-serif;
-    line-height: 1.6;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 10% 0%, #d9e7ea 0%, transparent 40%),
+        radial-gradient(circle at 90% 20%, #dae4ea 0%, transparent 45%),
+        var(--page-bg);
+    font-family: "Segoe UI", "Trebuchet MS", Tahoma, sans-serif;
+    line-height: 1.65;
 }
-
-/* ============================
-   Layout Container
-   ============================ */
-
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-/* ============================
-   Header & Navigation
-   ============================ */
 
 header {
-    border-bottom: 1px solid #222;
-    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    position: sticky;
+    top: 0;
+    z-index: 20;
 }
 
-header nav {
-    max-width: 900px;
+.top-nav {
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0.95rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-header nav a {
-    color: #888;
+.top-nav a {
     text-decoration: none;
-    margin-right: 1.25rem;
-    font-size: 0.9rem;
+    color: var(--muted);
+    font-size: 0.92rem;
+    font-weight: 600;
 }
 
-header nav a:hover {
-    color: #fff;
-    text-decoration: underline;
+.top-nav a.active,
+.top-nav a:hover {
+    color: var(--ink);
 }
-
-header nav a.active {
-    color: #fff;
-}
-
-/* ============================
-   Main Content
-   ============================ */
 
 main {
-    max-width: 900px;
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.5rem 4rem;
 }
 
 section {
-    margin-bottom: 2rem;
+    margin-top: 1.4rem;
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface);
 }
 
-hr {
-    border: none;
-    border-top: 1px solid #222;
-    margin: 2rem 0;
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    font-family: "Arial Narrow", "Franklin Gothic Medium", Arial, sans-serif;
+    letter-spacing: 0.01em;
 }
-
-/* ============================
-   Typography
-   ============================ */
 
 h1 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: #fff;
-    margin: 0 0 1.5rem;
+    font-size: clamp(2rem, 3.3vw, 2.8rem);
+    line-height: 1.2;
 }
 
 h2 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #fff;
-    margin: 0 0 1rem;
+    font-size: clamp(1.2rem, 2.1vw, 1.65rem);
+    margin-bottom: 0.9rem;
 }
 
 h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #ccc;
-    margin: 1.5rem 0 0.75rem;
+    font-size: 1.04rem;
+    margin-bottom: 0.55rem;
 }
 
 p {
-    margin: 0 0 1rem;
+    margin: 0 0 0.95rem;
 }
 
-ul, ol {
+ul,
+ol {
     margin: 0 0 1rem;
     padding-left: 1.25rem;
 }
@@ -121,281 +114,237 @@ li {
 }
 
 a {
-    color: #7cb3ff;
-    text-decoration: none;
+    color: var(--accent);
 }
 
 a:hover {
-    color: #a8cdff;
-    text-decoration: underline;
+    color: var(--accent-strong);
 }
 
 code {
-    font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", monospace;
-    font-size: 0.85em;
-    background-color: #1a1a1a;
-    padding: 0.15rem 0.3rem;
+    background: var(--code-bg);
+    color: var(--code-ink);
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.88rem;
 }
-
-/* ============================
-   Hero Section (Index Only)
-   ============================ */
 
 .hero {
-    text-align: center;
-    padding: 1.5rem 0 0.5rem;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 1.3rem;
+    align-items: stretch;
+    background:
+        linear-gradient(145deg, #f5f7f8, #ffffff 40%, #ecf2f5);
 }
 
-.hero .logo {
-    width: 90px;
-    height: auto;
-    margin-bottom: 0.75rem;
-    opacity: 0.9;
+.hero-subheadline {
+    font-size: 1.08rem;
+    color: var(--muted);
 }
 
-.hero h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #fff;
-    margin: 0 0 0.5rem;
-    letter-spacing: -0.01em;
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1rem;
 }
 
-.hero .subtitle {
-    font-size: 1.1rem;
-    color: #aaa;
-    margin: 0 0 0.75rem;
-}
-
-.hero .tagline {
-    font-size: 1rem;
-    color: #888;
-    margin: 0 0 1.5rem;
-}
-
-.hero .actions {
-    margin-top: 1.5rem;
-}
-
-.hero .actions a {
-    color: #7cb3ff;
-    margin: 0 0.75rem;
-}
-
-.hero .actions a:hover {
-    text-decoration: underline;
-}
-
-.hero .btn {
+.btn-primary,
+.btn-secondary {
     display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #2a2a2a;
-    border: 1px solid #444;
-    color: #fff;
-    font-size: 0.9rem;
-}
-
-.hero .btn:hover {
-    background-color: #333;
-    text-decoration: none;
-}
-
-/* ============================
-   Two Column Layout
-   ============================ */
-
-.two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-}
-
-/* ============================
-   Technical Table
-   ============================ */
-
-.tech-table {
-    width: auto;
-    border-collapse: collapse;
-    font-size: 0.95rem;
-}
-
-.tech-table td {
-    padding: 0.3rem 0;
-    vertical-align: top;
-}
-
-.tech-table td:first-child {
-    width: 140px;
-    color: #888;
-    padding-right: 1rem;
-}
-
-/* ============================
-   Product Interface / Screenshots
-   ============================ */
-
-.product-interface {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.section-intro {
-    max-width: 700px;
-    margin: 0 auto 40px auto;
-    opacity: 0.8;
-}
-
-.screenshot-box {
-    background: #111;
-    border: 1px solid #222;
     border-radius: 8px;
-    padding: 12px;
-    overflow: hidden;
+    border: 1px solid var(--line);
+    padding: 0.62rem 0.92rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.92rem;
 }
 
-.screenshot-box img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 6px;
+.btn-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #ffffff;
 }
 
-.hero-shot {
-    margin-bottom: 40px;
+.btn-primary:hover {
+    background: var(--accent-strong);
+    border-color: var(--accent-strong);
+    color: #ffffff;
 }
 
-.screenshot-grid {
+.btn-secondary {
+    background: var(--surface-alt);
+    color: var(--ink);
+}
+
+.hero-visual {
+    border: 1px dashed #8ea2ad;
+    border-radius: 10px;
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #e7eef1,
+            #e7eef1 14px,
+            #dde7ec 14px,
+            #dde7ec 28px
+        );
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
+    place-items: center;
+    min-height: 220px;
 }
 
-.screenshot-card {
-    text-align: left;
+.hero-visual p {
+    margin: 0;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #31434e;
 }
 
-.caption {
-    font-size: 0.9rem;
-    margin-top: 12px;
-    opacity: 0.7;
-}
-
-.caption.center {
+.workflow-diagram {
+    max-width: 360px;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--surface-alt);
     text-align: center;
 }
 
-/* ============================
-   Downloads Page
-   ============================ */
+.workflow-diagram p {
+    margin: 0.35rem 0;
+    font-weight: 600;
+}
+
+.workflow-diagram .arrow {
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+}
+
+.capabilities-grid article {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.85rem;
+    background: var(--surface-alt);
+}
+
+.credibility-list {
+    margin-bottom: 1.2rem;
+}
+
+.architecture-diagram {
+    margin: 0;
+    padding: 0.9rem;
+    border: 1px solid #304452;
+    border-radius: 8px;
+    background: #1c2c36;
+    color: #d7e4eb;
+    overflow-x: auto;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.architecture-diagram code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    border-radius: 0;
+}
+
+.screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+}
+
+.screenshot-placeholder {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface-alt);
+    padding: 0.85rem;
+}
+
+.screenshot-placeholder div {
+    border: 1px dashed #92a5b0;
+    border-radius: 7px;
+    min-height: 120px;
+    display: grid;
+    place-items: center;
+    color: #4c5f6b;
+    font-weight: 600;
+    background: #edf3f6;
+}
+
+/* Existing page classes retained */
 
 .download-latest {
     margin: 2rem 0;
 }
 
-.download-latest h2 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-}
-
-.version-meta {
-    color: #888;
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
+.version-meta,
+.release-date,
+.signing-note,
+.footer-content {
+    color: var(--muted);
 }
 
 .checksum-block {
     margin: 1.5rem 0;
     padding: 1rem;
-    background-color: #141414;
-    border: 1px solid #222;
+    border: 1px solid var(--line);
+    background: var(--surface-alt);
 }
 
-.checksum-block label {
-    display: block;
-    font-size: 0.85rem;
-    color: #666;
-    margin-bottom: 0.5rem;
-}
-
-.checksum-block code {
-    display: block;
-    font-size: 0.85rem;
-    word-break: break-all;
-    background: transparent;
-    padding: 0;
-}
-
-.signing-note {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-/* ============================
-   Changelog
-   ============================ */
-
-.release {
-    margin-bottom: 2rem;
-}
-
-.release h2 {
-    font-size: 1.1rem;
-    color: #fff;
-    margin-bottom: 0.5rem;
-}
-
-.release-date {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 1rem;
-}
-
-/* ============================
-   Trust Page
-   ============================ */
-
+.release,
 .trust-item {
     margin-bottom: 1.5rem;
 }
 
-.trust-item h2 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.trust-item p {
-    margin: 0;
-    color: #aaa;
-}
-
-/* ============================
-   Footer
-   ============================ */
-
 footer {
-    border-top: 1px solid #222;
-    padding: 2rem 1.5rem;
+    border-top: 1px solid var(--line);
     margin-top: 2rem;
+    background: #ffffff;
 }
 
 .footer-content {
-    max-width: 900px;
+    max-width: 1080px;
     margin: 0 auto;
     text-align: center;
-    font-size: 0.9rem;
-    color: #666;
+    padding: 1.4rem 1.5rem 2rem;
+    font-size: 0.92rem;
 }
 
 .footer-content p {
-    margin: 0 0 0.5rem;
+    margin: 0.35rem 0;
 }
 
-.footer-content a {
-    color: #888;
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .capabilities-grid,
+    .screenshots-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    main {
+        padding: 1.2rem 1rem 3rem;
+    }
+
+    section {
+        padding: 1rem;
+    }
 }
 
 .footer-content a:hover {
