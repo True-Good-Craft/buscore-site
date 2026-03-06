@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Inter:wght@400;500;600&display=swap");
 
 :root {
     --page-bg: #0f1720;
@@ -9,6 +9,9 @@
     --line: #2b3542;
     --accent: #3da9fc;
     --accent-strong: #6bbdff;
+    --cta-bg: #1f5883;
+    --cta-border: #2b79b4;
+    --cta-hover: #2b79b4;
     --mono-bg: #fafafa;
     --mono-line: #ddd;
     --mono-ink: #1f2933;
@@ -100,7 +103,7 @@ h1 {
 h2 {
     font-size: clamp(1.7rem, 1.875rem, 1.875rem);
     line-height: 1.25;
-    font-weight: 600;
+    font-weight: 650;
     margin-bottom: 18px;
 }
 
@@ -138,7 +141,7 @@ pre,
 .architecture-diagram,
 .workflow-diagram,
 .system-item {
-    font-family: "JetBrains Mono", "IBM Plex Mono", Consolas, monospace;
+    font-family: "IBM Plex Mono", "JetBrains Mono", Consolas, monospace;
 }
 
 code {
@@ -175,6 +178,16 @@ main > section {
 main > section + section {
     border-top: 1px solid #ddd;
     margin-top: 16px;
+    position: relative;
+}
+
+main > section + section::before {
+    content: "";
+    position: absolute;
+    left: 32px;
+    right: 32px;
+    top: -9px;
+    border-top: 1px solid rgba(221, 221, 221, 0.35);
 }
 
 section h2 + p {
@@ -190,12 +203,15 @@ section p + ol {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 20px;
+    padding-top: 110px;
+    padding-bottom: 82px;
     background: linear-gradient(145deg, #1a2530, #1e2933 42%, #243140);
 }
 
 .hero-copy ul {
-    color: #bac5d1;
-    font-size: 0.95rem;
+    color: #aeb8c4;
+    font-size: 0.92rem;
+    line-height: 1.6;
 }
 
 .hero-subheadline {
@@ -218,23 +234,26 @@ section p + ol {
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.93rem;
+    font-size: 0.9rem;
     line-height: 1;
-    padding: 0.75rem 0.96rem;
+    padding: 0.66rem 0.9rem;
 }
 
 .btn,
 .btn-primary {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #0f1720;
+    background: var(--cta-bg);
+    border-color: var(--cta-border);
+    color: #e6edf3;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
 }
 
 .btn:hover,
 .btn-primary:hover {
-    background: var(--accent-strong);
-    border-color: var(--accent-strong);
-    color: #0f1720;
+    background: var(--cta-hover);
+    border-color: var(--cta-hover);
+    color: #ffffff;
 }
 
 .btn-secondary {
@@ -290,7 +309,8 @@ section p + ol {
     border: 1px solid #ddd;
     color: #111827;
     border-radius: 8px;
-    padding: 18px;
+    padding: 19px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .workflow-diagram {
@@ -370,7 +390,7 @@ section p + ol {
     object-fit: cover;
     border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: var(--shadow-soft);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .checksum-block {
