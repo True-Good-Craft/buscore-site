@@ -1,16 +1,16 @@
 /* BUS Core Site Styles */
 
 :root {
-    --page-bg: #eef2f3;
-    --surface: #ffffff;
-    --surface-alt: #f4f7f8;
-    --ink: #1d262d;
-    --muted: #4b5b67;
-    --line: #cfd9de;
-    --accent: #0e6778;
-    --accent-strong: #0a4f5e;
-    --code-bg: #162128;
-    --code-ink: #d9e4eb;
+    --page-bg: #0f1720;
+    --surface: #1e2933;
+    --surface-alt: #243140;
+    --ink: #e6edf3;
+    --muted: #9aa4af;
+    --line: #2b3542;
+    --accent: #3da9fc;
+    --accent-strong: #6bbdff;
+    --code-bg: #0d141c;
+    --code-ink: #d6e8f8;
 }
 
 * {
@@ -25,8 +25,8 @@ body {
     margin: 0;
     color: var(--ink);
     background:
-        radial-gradient(circle at 10% 0%, #d9e7ea 0%, transparent 40%),
-        radial-gradient(circle at 90% 20%, #dae4ea 0%, transparent 45%),
+        radial-gradient(circle at 10% 0%, #172330 0%, transparent 40%),
+        radial-gradient(circle at 90% 20%, #152435 0%, transparent 45%),
         var(--page-bg);
     font-family: "Segoe UI", "Trebuchet MS", Tahoma, sans-serif;
     line-height: 1.65;
@@ -34,7 +34,7 @@ body {
 
 header {
     border-bottom: 1px solid var(--line);
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(15, 23, 32, 0.92);
     backdrop-filter: blur(6px);
     position: sticky;
     top: 0;
@@ -59,7 +59,7 @@ header {
 
 .top-nav a.active,
 .top-nav a:hover {
-    color: var(--ink);
+    color: var(--accent);
 }
 
 main {
@@ -74,6 +74,7 @@ section {
     border: 1px solid var(--line);
     border-radius: 12px;
     background: var(--surface);
+    box-shadow: 0 8px 20px rgba(5, 10, 18, 0.2);
 }
 
 h1,
@@ -136,7 +137,7 @@ code {
     gap: 1.3rem;
     align-items: stretch;
     background:
-        linear-gradient(145deg, #f5f7f8, #ffffff 40%, #ecf2f5);
+    linear-gradient(145deg, #1d2a35, #1e2933 45%, #243140);
 }
 
 .hero-subheadline {
@@ -179,27 +180,43 @@ code {
     color: var(--ink);
 }
 
+.btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
 .hero-visual {
-    border: 1px dashed #8ea2ad;
+    border: 1px solid var(--line);
     border-radius: 10px;
-    background:
-        repeating-linear-gradient(
-            45deg,
-            #e7eef1,
-            #e7eef1 14px,
-            #dde7ec 14px,
-            #dde7ec 28px
-        );
+    background: #1a2530;
     display: grid;
     place-items: center;
     min-height: 220px;
+    overflow: hidden;
 }
 
-.hero-visual p {
-    margin: 0;
+.hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.credibility-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.95rem;
+}
+
+.credibility-strip span {
+    border: 1px solid #36506a;
+    background: #1a2633;
+    color: #b9d6ec;
+    border-radius: 999px;
+    padding: 0.22rem 0.62rem;
+    font-size: 0.77rem;
     font-weight: 700;
-    font-size: 0.95rem;
-    color: #31434e;
+    letter-spacing: 0.01em;
 }
 
 .workflow-diagram {
@@ -233,6 +250,28 @@ code {
     border-radius: 8px;
     padding: 0.85rem;
     background: var(--surface-alt);
+}
+
+.capabilities-grid h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cap-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex: 0 0 auto;
+}
+
+.cap-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
 }
 
 .credibility-list {
@@ -272,15 +311,14 @@ code {
     padding: 0.85rem;
 }
 
-.screenshot-placeholder div {
-    border: 1px dashed #92a5b0;
+.screenshot-placeholder img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    border: 1px solid #314150;
     border-radius: 7px;
-    min-height: 120px;
-    display: grid;
-    place-items: center;
-    color: #4c5f6b;
-    font-weight: 600;
-    background: #edf3f6;
+    background: #172330;
 }
 
 /* Existing page classes retained */
@@ -311,7 +349,7 @@ code {
 footer {
     border-top: 1px solid var(--line);
     margin-top: 2rem;
-    background: #ffffff;
+    background: #121c27;
 }
 
 .footer-content {
@@ -348,35 +386,11 @@ footer {
 }
 
 .footer-content a:hover {
-    color: #aaa;
+    color: var(--accent-strong);
 }
 
 .footer-content .copyright {
     font-size: 0.85rem;
-    color: #555;
+    color: #768390;
     margin-top: 1rem;
-}
-
-/* ============================
-   Responsive
-   ============================ */
-
-@media (max-width: 600px) {
-    .two-col {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .hero h1 {
-        font-size: 2rem;
-    }
-    
-    .hero .actions a {
-        display: block;
-        margin: 0.5rem 0;
-    }
-    
-    header nav a {
-        margin-right: 1rem;
-    }
 }
