@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="apple-touch-icon" href="/assets/Logo.png">
-    <meta name="theme-color" content="#0d0d0d">
-    <title>BUS Core | Local-First ERP for Operators</title>
-    <meta name="description" content="Local-first inventory, manufacturing, and margin tracking for small operators. No SaaS. No telemetry. Your data stays on your machine.">
+    <meta name="theme-color" content="#151d23">
+    <title>BUS Core | Digital Shop Jig for Manufacturing Workflows</title>
+    <meta name="description" content="BUS Core is local-first operational infrastructure for small manufacturing shops: track materials, run production batches, calculate costs, and maintain a production ledger.">
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -16,160 +16,183 @@
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "22e6e7aa34d34328bd7219de69f5439c"}'></script>
 
 <header>
-    <nav>
-        <a href="index.html" class="active">Home</a>
+    <nav class="top-nav">
+        <a href="index.html" class="active" aria-current="page">Home</a>
         <a href="downloads.html">Downloads</a>
         <a href="changelog.html">Changelog</a>
         <a href="trust.html">Trust</a>
+        <a href="https://www.reddit.com/r/BUS_Core/">Community</a>
         <a href="contact.html">Contact</a>
     </nav>
 </header>
 
 <main>
 
-<section class="hero">
-    <img src="/assets/Logo.png" alt="BUS Core" class="logo">
-
-    <h1>BUS Core</h1>
-    <p class="subtitle">Local-First ERP for Operators</p>
-
-    <p class="tagline">
-        Inventory. Manufacturing. Margin tracking.
-        Runs on your machine. Not someone else's cloud.
-    </p>
-
-    <div class="actions">
-        <a href="downloads.html" class="btn">Downloads</a>
-        <a href="trust.html">Read the Trust Model</a>
-    </div>
-
-    <p class="hero-note">
-        <strong>No accounts. No telemetry.</strong> Default bind: 127.0.0.1
-    </p>
-</section>
-
-<hr>
-
-<section class="two-col">
-
-    <div>
-        <h2>Core Capabilities</h2>
+<section class="hero" id="hero">
+    <div class="hero-copy">
+        <h1>BUS Core &mdash; the digital shop jig for manufacturing workflows</h1>
+        <p class="hero-subheadline">Local-first production tracking for small manufacturing shops.</p>
         <ul>
-            <li>FIFO inventory tracking with batch-based valuation</li>
-            <li>Manufacturing recipes with atomic production runs</li>
-            <li>Real gross profit via inventory-linked COGS</li>
-            <li>Local cash event tracking (Finance v1)</li>
-            <li>Encrypted database export (AES-GCM)</li>
-            <li>REST API for local integrations</li>
+            <li>track materials and inventory</li>
+            <li>run repeatable production batches</li>
+            <li>calculate real product cost</li>
+            <li>maintain a production ledger</li>
         </ul>
-    </div>
-
-    <div>
-        <h2>Operational Boundaries</h2>
-        <ul>
-            <li>No forced user accounts</li>
-            <li>No background telemetry</li>
-            <li>No subscription billing</li>
-            <li>No cloud sync or remote dependency</li>
-            <li>No remote kill switch</li>
-        </ul>
-    </div>
-
-</section>
-
-<hr>
-
-<!-- PRODUCT INTERFACE -->
-<section class="product-interface">
-    <h2>Product Interface</h2>
-    <p class="section-intro">
-        Built for real operational flow — inventory in, production out, margins derived from movement.
-    </p>
-
-    <!-- HERO SCREENSHOT -->
-    <div class="screenshot-box hero-shot">
-        <a href="Home.jpg" target="_blank">
-            <img src="Home.jpg" alt="BUS Core Dashboard">
-        </a>
-    </div>
-    <p class="caption center">Dashboard — Operational overview and system state.</p>
-
-    <!-- GRID SCREENSHOTS -->
-    <div class="screenshot-grid">
-
-        <div class="screenshot-card">
-            <div class="screenshot-box">
-                <a href="Inventory.jpg" target="_blank">
-                    <img src="Invintory.jpg" alt="Inventory View">
-                </a>
-            </div>
-            <p class="caption">Inventory — FIFO tracking with batch visibility.</p>
+        <div class="hero-actions">
+            <a href="downloads.html" class="btn-primary">Download BUS Core</a>
+            <a href="https://github.com/True-Good-Craft/TGC-BUS-Core" class="btn-secondary" target="_blank" rel="noopener noreferrer">Star the repo</a>
         </div>
-
-        <div class="screenshot-card">
-            <div class="screenshot-box">
-                <a href="Manufacturing.jpg" target="_blank">
-                    <img src="Manufacturing.jpg" alt="Manufacturing Run">
-                </a>
-            </div>
-            <p class="caption">Manufacturing — Atomic production runs with stock impact.</p>
+        <div class="credibility-strip" aria-label="Credibility badges">
+            <span>Local-First</span>
+            <span>SQLite Database</span>
+            <span>No Telemetry</span>
+            <span>Open Source Core</span>
+            <span>Versioned Releases</span>
         </div>
-
-        <div class="screenshot-card">
-            <div class="screenshot-box">
-                <a href="Recipe.jpg" target="_blank">
-                    <img src="Recipe.jpg" alt="Recipe Builder">
-                </a>
-            </div>
-            <p class="caption">Recipes — Structured cost composition.</p>
-        </div>
-
+    </div>
+    <div class="hero-visual">
+        <img src="assets/placeholders/dashboard.jpg" alt="Dashboard overview placeholder">
     </div>
 </section>
 
-<hr>
+<section id="problem">
+    <h2>The Problem</h2>
+    <p>Most small manufacturing shops run production on:</p>
+    <ul>
+        <li>spreadsheets</li>
+        <li>notebooks</li>
+        <li>sticky notes</li>
+        <li>memory</li>
+    </ul>
+    <p>This works until the operation grows slightly.</p>
+    <p>Then problems emerge:</p>
+    <ul>
+        <li>materials run out mid-job</li>
+        <li>pricing becomes guesswork</li>
+        <li>nobody remembers the cost of the last batch</li>
+        <li>inventory drift appears</li>
+    </ul>
+    <p>BUS Core replaces that chaos with a structured workflow.</p>
+</section>
 
-<section>
+<section id="target-users">
+    <h2>Target Users</h2>
+    <p>BUS Core works well for:</p>
+    <ul>
+        <li>laser engraving shops</li>
+        <li>3D print farms</li>
+        <li>small fabrication shops</li>
+        <li>Etsy-scale manufacturing</li>
+        <li>small product assembly operations</li>
+    </ul>
+    <p>If you build real products in small batches, BUS Core is designed for your workflow.</p>
+</section>
+
+<section id="shop-jig-concept">
+    <h2>The Shop Jig Concept</h2>
+    <p>A jig ensures consistent production on a machine.</p>
+    <p>BUS Core ensures consistent production workflows.</p>
+    <p>Instead of relying on memory or scattered notes, the system enforces a structured production process.</p>
+    <div class="workflow-diagram" aria-label="BUS Core workflow diagram">
+        <p>Materials</p>
+        <p class="arrow" aria-hidden="true">&#8595;</p>
+        <p>Blueprint</p>
+        <p class="arrow" aria-hidden="true">&#8595;</p>
+        <p>Manufacturing Run</p>
+        <p class="arrow" aria-hidden="true">&#8595;</p>
+        <p>Inventory Movement</p>
+        <p class="arrow" aria-hidden="true">&#8595;</p>
+        <p>Cost Calculation</p>
+        <p class="arrow" aria-hidden="true">&#8595;</p>
+        <p>Production Ledger</p>
+    </div>
+</section>
+
+<section id="capabilities">
+    <h2>Core Capabilities</h2>
+    <div class="capabilities-grid">
+        <article>
+            <h3><span class="cap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3 8.2 12 3l9 5.2V18L12 23 3 18V8.2Zm2 1.1V16.8l7 3.9 7-3.9V9.3l-7 4-7-4Zm1.9-1.4 5.1 2.9 5.1-2.9L12 5l-5.1 2.9Z"/></svg></span>Inventory Control</h3>
+            <p>Track raw materials and product stock in a structured system.</p>
+        </article>
+        <article>
+            <h3><span class="cap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 2h9l5 5v15H6V2Zm2 2v16h10V8h-4V4H8Zm7 0v3h3l-3-3ZM10 11h6v2h-6v-2Zm0 4h6v2h-6v-2Z"/></svg></span>Production Blueprints</h3>
+            <p>Define how materials become products using repeatable recipes.</p>
+        </article>
+        <article>
+            <h3><span class="cap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 7.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Zm9 4.5-2.1-.7a6.8 6.8 0 0 0-.7-1.6l1.1-1.9-1.9-1.9-1.9 1.1c-.5-.3-1-.5-1.6-.7L12 3h-2l-.7 2.1c-.6.2-1.1.4-1.6.7L5.8 4.7 3.9 6.6 5 8.5c-.3.5-.5 1-.7 1.6L2.2 12v2l2.1.7c.2.6.4 1.1.7 1.6l-1.1 1.9 1.9 1.9 1.9-1.1c.5.3 1 .5 1.6.7L10 22h2l.7-2.1c.6-.2 1.1-.4 1.6-.7l1.9 1.1 1.9-1.9-1.1-1.9c.3-.5.5-1 .7-1.6L21 14v-2Z"/></svg></span>Manufacturing Runs</h3>
+            <p>Record what was produced and which materials were consumed.</p>
+        </article>
+        <article>
+            <h3><span class="cap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 2c-4.1 0-7 2.1-7 5 0 2.2 1.6 3.8 4.6 4.6l3.1.8c1.8.5 2.8 1.2 2.8 2.3 0 1.4-1.5 2.3-3.8 2.3-2.2 0-4-.8-5.4-2.3l-1.4 1.6c1.6 1.8 3.7 2.8 6.1 3.1V22h2v-2.6c3.3-.4 5.5-2.3 5.5-4.9 0-2.3-1.6-3.8-4.9-4.7l-2.9-.8C9 8.6 8 8 8 7c0-1.3 1.3-2.1 3.3-2.1 1.9 0 3.4.6 4.7 1.8L17.4 5C16 3.4 14.3 2.4 12 2Z"/></svg></span>Real Cost Calculation</h3>
+            <p>Understand the actual cost of each batch and product.</p>
+        </article>
+        <article>
+            <h3><span class="cap-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3 3h2v18H3V3Zm16 18H7V3h12v18Zm-2-2V5H9v14h8ZM11 16h2v3h-2v-3Zm0-5h2v4h-2v-4Zm3-3h2v11h-2V8Z"/></svg></span>Production Ledger</h3>
+            <p>Maintain a complete history of inventory movement and manufacturing activity.</p>
+        </article>
+    </div>
+</section>
+
+<section id="architecture-credibility">
+    <h2>Architecture &amp; Credibility</h2>
+    <ul class="credibility-list">
+        <li>Local-first architecture</li>
+        <li>SQLite database</li>
+        <li>No telemetry</li>
+        <li>Runs on your machine</li>
+        <li>Open source core</li>
+        <li>Versioned releases</li>
+    </ul>
+    <pre class="architecture-diagram" aria-label="BUS Core architecture diagram"><code>BUS Core
+|- Local Database
+|- Inventory Engine
+|- Manufacturing Engine
+|- Finance / Cost Engine
+\- Web Interface</code></pre>
+</section>
+
+<section id="screenshots">
+    <h2>Screenshots</h2>
+    <div class="screenshots-grid">
+        <article class="screenshot-placeholder">
+            <h3>Inventory Management Interface</h3>
+            <img src="assets/placeholders/inventory.jpg" alt="Inventory management interface placeholder">
+        </article>
+        <article class="screenshot-placeholder">
+            <h3>Manufacturing Run Interface</h3>
+            <img src="assets/placeholders/manufacturing.jpg" alt="Manufacturing run interface placeholder">
+        </article>
+        <article class="screenshot-placeholder">
+            <h3>Cost Analysis View</h3>
+            <img src="assets/placeholders/cost-analysis.jpg" alt="Cost analysis view placeholder">
+        </article>
+        <article class="screenshot-placeholder">
+            <h3>Production Ledger</h3>
+            <img src="assets/placeholders/ledger.jpg" alt="Production ledger placeholder">
+        </article>
+    </div>
+</section>
+
+<section id="installation">
+    <h2>Installation</h2>
+    <ol>
+        <li>Download latest release</li>
+        <li>Run executable</li>
+        <li>Browser will auto open</li>
+    </ol>
+    <p>Example access:</p>
+    <p><code>http://localhost:8765</code></p>
+    <p>Optional Docker command:</p>
+    <p><code>docker run buscore</code></p>
+</section>
+
+<section id="philosophy">
     <h2>Philosophy</h2>
-    <p>
-        Software should not own your business.
-        BUS Core is opinionated: inventory is ledger-driven,
-        cost is derived from real movements,
-        and accounting bloat stays out.
-    </p>
-    <p>
-        Designed and used by a working shop.
-        Built for teams that prefer control over convenience.
-    </p>
-</section>
-
-<hr>
-
-<section>
-    <h2>Technical Overview</h2>
-    <table class="tech-table">
-        <tr><td>Database:</td><td>SQLite (WAL mode)</td></tr>
-        <tr><td>API:</td><td>FastAPI (local-only bind by default)</td></tr>
-        <tr><td>Server:</td><td>Uvicorn</td></tr>
-        <tr><td>Current Version:</td><td>1.0.0 </td></tr>
-        <tr><td>License:</td><td>AGPL (Commercial licenses available)</td></tr>
-        <tr><td>Telemetry:</td><td>None</td></tr>
-    </table>
-</section>
-
-<hr>
-
-<section>
-    <h2>Positioning</h2>
-    <p>
-        BUS Core is hardened infrastructure for small operators.
-        It runs locally, stores data locally, and computes analytics locally.
-    </p>
-    <p>
-        No external SaaS dependency.
-        No hidden sync.
-        No surprise subscription model.
-    </p>
+    <p>Small manufacturing shops often fall between two extremes.</p>
+    <p>Spreadsheets are too fragile.</p>
+    <p>ERP systems are too complex and expensive.</p>
+    <p>BUS Core exists to fill that gap with a practical, local-first operational tool.</p>
 </section>
 
 </main>
