@@ -29,104 +29,21 @@
 
 <section class="download-latest">
     <h2 id="latest-version-title">BUS Core Latest Release</h2>
-    <p class="version-meta" id="latest-release-date">Released: —</p>
+    <p class="version-meta" id="latest-release-date">Live release metadata</p>
     
     <p>
-        <a id="latest-download-link" href="#" class="btn">Download Latest</a>
+        <a id="latest-download-link" href="https://lighthouse.buscore.ca/download/latest" class="btn">Download Latest</a>
     </p>
-    <p class="version-meta">Release notes: <a id="latest-release-notes" href="#">View notes</a></p>
+    <p class="version-meta" id="latest-release-notes-wrap">Release notes: <a id="latest-release-notes" href="#">View notes</a></p>
     
     <div class="checksum-block">
         <label>SHA256 Checksum</label>
         <code id="latest-sha256">—</code>
     </div>
     <p class="version-meta" id="latest-size-bytes">Size: —</p>
+    <p class="version-meta" id="manifest-status" hidden>Live release details are temporarily unavailable.</p>
     
     <p class="signing-note">Binaries are digitally signed. Verify signatures before installation.</p>
-</section>
-
-<hr>
-
-<section>
-    <h2>Previous Versions</h2>
-
-    <div class="previous-version">
-        <h3>v0.10.6.0</h3>
-        <p>
-            <a href="https://pub-9908523f6c644d55a2e018f04240340f.r2.dev/releases/0.10.6.0/Bus-Core-0.10.6.0.zip" class="btn">Download v0.10.6.0</a>
-        </p>
-        <div class="checksum-block">
-            <label>SHA256</label>
-            <code>7796C93C3ECA80326ABED7B093DF1D392AD4C65B3999AAD9777CF6DE1C4DDC04</code>
-        </div>
-    </div>
-
-    <div class="previous-version">
-        <h3>v0.10.5</h3>
-        <p>
-            <a href="https://pub-9908523f6c644d55a2e018f04240340f.r2.dev/releases/0.10.5/BUS-Core-0.10.5.zip" class="btn">Download v0.10.5</a>
-        </p>
-        <div class="checksum-block">
-            <label>SHA256</label>
-            <code>2A5C97645A0568E9AC3CBD5293675BF67AAC745899055D187654B6A7D19A27C5</code>
-        </div>
-    </div>
-
-    <div class="previous-version">
-        <h3>v0.10.4</h3>
-        <p>
-            <a href="https://pub-9908523f6c644d55a2e018f04240340f.r2.dev/releases/0.10.4/TGC-BUS-Core-0.10.4.zip" class="btn">Download v0.10.4</a>
-        </p>
-        <div class="checksum-block">
-            <label>SHA256</label>
-            <code>AD42904B74F9DE92A9B956AC8C5687B67D9BC705F23C1324463226F69B08E158</code>
-        </div>
-    </div>
-
-    <div class="previous-version">
-        <h3>v0.10.3</h3>
-        <p>
-            <a href="https://pub-9908523f6c644d55a2e018f04240340f.r2.dev/releases/0.10.3/TGC-BUS-Core-0.10.3.zip" class="btn">Download v0.10.3</a>
-        </p>
-        <div class="checksum-block">
-            <label>SHA256</label>
-            <code>CE3770AAD19B0D7835D9B3BFCE696C4DC7BA53F967DEC05DCDE14B8581F282B6</code>
-        </div>
-    </div>
-
-    <div class="previous-version">
-        <h3>v0.10.2</h3>
-        <p>
-            <a href="https://pub-9908523f6c644d55a2e018f04240340f.r2.dev/releases/0.10.2/TGC-BUS-Core-0.10.2.zip" class="btn">Download v0.10.2</a>
-        </p>
-        <div class="checksum-block">
-            <label>SHA256</label>
-            <code>2E6D1DC723F76EBE4C666AA9F70ECDEAEB39340713A8CCCB5991722670FF2AB8</code>
-        </div>
-    </div>
-
-    <div class="previous-version">
-        <h3>v0.10.1</h3>
-        <p>
-            <a href="https://pub-9908523f6c644d55a2e018f04240340f.r2.dev/releases/0.10.1/TGC-BUS-Core-0.10.1.zip" class="btn">Download v0.10.1</a>
-        </p>
-        <div class="checksum-block">
-            <label>SHA256</label>
-            <code>CC689A52F8D794F6586A5E89B72AA82C38CE5E098BBA2BE54531E023825C8DC0</code>
-        </div>
-    </div>
-
-    <div class="previous-version">
-        <h3>v0.10.0</h3>
-        <p>
-            <a href="https://pub-9908523f6c644d55a2e018f04240340f.r2.dev/releases/0.10.0/TGC-BUS-Core-0.10.0.zip" class="btn">Download v0.10.0</a>
-        </p>
-        <div class="checksum-block">
-            <label>SHA256</label>
-            <code>5CB9819322DDAD036CB11E0685DCF8D3D2877D6D517E404A8D50AC4398E6BB03</code>
-        </div>
-    </div>
-
 </section>
 
 </main>
@@ -142,73 +59,7 @@
     </div>
 </footer>
 
-<script>
-(() => {
-    const titleEl = document.getElementById('latest-version-title');
-    const downloadEl = document.getElementById('latest-download-link');
-    const shaEl = document.getElementById('latest-sha256');
-    const sizeEl = document.getElementById('latest-size-bytes');
-    const notesEl = document.getElementById('latest-release-notes');
-
-    const formatSize = (bytes) => {
-        const mb = (bytes / (1024 * 1024)).toFixed(1);
-        return `Size: ${mb} MB (${bytes} bytes)`;
-    };
-
-    fetch('/manifest/core/stable.json', { cache: 'no-store' })
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error('Manifest fetch failed');
-            }
-            return response.json();
-        })
-        .then((manifest) => {
-            const latest = manifest && manifest.latest;
-            const download = latest && latest.download;
-            const sizeBytes = Number(latest && latest.size_bytes);
-            const downloadUrl = (download && download.url) || latest.url;
-            const hasRequired = latest
-                && typeof latest.version === 'string' && latest.version
-                && typeof downloadUrl === 'string' && downloadUrl
-                && download
-                && typeof download.sha256 === 'string' && download.sha256
-                && Number.isFinite(sizeBytes) && sizeBytes > 0;
-
-            if (!hasRequired) {
-                return;
-            }
-
-            if (titleEl) {
-                titleEl.textContent = `BUS Core v${latest.version}`;
-            }
-
-            if (downloadEl) {
-                downloadEl.href = downloadUrl;
-                downloadEl.textContent = `Download v${latest.version}`;
-            }
-
-            if (shaEl) {
-                shaEl.textContent = download.sha256;
-            }
-
-            if (sizeEl) {
-                sizeEl.textContent = formatSize(sizeBytes);
-            }
-
-            if (notesEl) {
-                if (typeof latest.release_notes_url === 'string' && latest.release_notes_url) {
-                    notesEl.href = latest.release_notes_url;
-                    notesEl.style.removeProperty('display');
-                } else {
-                    notesEl.style.display = 'none';
-                }
-            }
-        })
-        .catch(() => {
-            // Fail-soft: keep hardcoded fallback values.
-        });
-})();
-</script>
+<script src="assets/js/downloads.js" defer></script>
 
 </body>
 </html>
