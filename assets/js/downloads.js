@@ -73,12 +73,10 @@
             const download = latest && latest.download;
             const version = latest && latest.version;
             const sizeBytes = Number(latest && latest.size_bytes);
-            const downloadUrl = download && download.url;
             const sha256 = download && download.sha256;
             const releaseNotesUrl = latest && latest.release_notes_url;
 
             const hasRequiredFields = typeof version === 'string' && version
-                && typeof downloadUrl === 'string' && downloadUrl
                 && typeof sha256 === 'string' && sha256
                 && Number.isFinite(sizeBytes) && sizeBytes > 0
                 && typeof releaseNotesUrl === 'string' && releaseNotesUrl;
@@ -93,7 +91,6 @@
 
             if (downloadEl) {
                 downloadEl.textContent = `DOWNLOAD v${version}`;
-                downloadEl.href = downloadUrl;
             }
 
             if (shaEl) {

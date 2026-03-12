@@ -88,13 +88,13 @@ Navigation pattern observed:
 Current download behavior is mixed dynamic + static:
 
 - Latest download section in `downloads.html` initializes placeholders (`Download Latest`, release notes placeholder, checksum placeholder, size placeholder).
-- Client-side JS fetches `/manifest/core/stable.json` with `{ cache: 'no-store' }`.
+- Client-side JS fetches `https://lighthouse.buscore.ca/manifest/core/stable.json` with `{ cache: 'no-store' }` for release metadata hydration.
+- Primary official latest-download CTA remains fixed to `https://lighthouse.buscore.ca/download/latest` to preserve counted explicit download intent.
 - If manifest has required fields, page updates latest section with:
   - `latest.version`
-  - `latest.download.url` (fallback to `latest.url`)
   - `latest.download.sha256`
   - `latest.size_bytes`
-  - `latest.release_notes_url` (if missing, notes link is hidden)
+  - `latest.release_notes_url`
 - On fetch/validation failure, script fail-softs and leaves fallback static placeholders.
 
 Previous-version behavior:
@@ -108,6 +108,7 @@ Distribution source summary:
 - Current latest artifact host: Cloudflare R2 public domain (`pub-...r2.dev`).
 - Previous artifacts: direct hardcoded R2 links in HTML.
 - No local files under `downloads/` are used for downloadable binaries in the current repository state.
+- Website page hydration intentionally does not call counted Lighthouse update-check routes.
 
 ## 5. Release Notes
 
@@ -124,17 +125,17 @@ URL structure findings:
 
 ## 6. Lighthouse Interaction
 
-Lighthouse-specific interaction is not evidenced in this repository.
+Lighthouse interaction is explicit in repository code for the Downloads page.
 
 Observed integration endpoints/refs:
 
-- Manifest endpoint consumed by website JS: `/manifest/core/stable.json`.
-- Artifact distribution endpoints: Cloudflare R2 direct URLs (`pub-...r2.dev/releases/...`).
-- No explicit references to "Lighthouse" endpoints, APIs, redirects, or telemetry hooks were found in site code.
+- Public manifest endpoint consumed by website JS: `https://lighthouse.buscore.ca/manifest/core/stable.json`.
+- Counted latest-download intent route used by primary CTA: `https://lighthouse.buscore.ca/download/latest`.
+- No `/update/check` usage was found in site page-rendering code.
 
 Conclusion for this section:
 
-- Lighthouse interaction: Not determined from repository evidence.
+- Website hydration uses non-counted public manifest reads; counted intent remains on explicit download click.
 
 ## 7. Analytics / Telemetry
 
@@ -171,7 +172,8 @@ External services/domains directly used by the site:
 | Behavior | Source file | Notes |
 |---|---|---|
 | Main navigation appears site-wide | `index.html` (pattern repeated across pages) | Core nav entries: Home/Downloads/Changelog/Trust/Community/Contact |
-| Latest download is manifest-driven | `downloads.html` | JS fetches `/manifest/core/stable.json`; fail-soft if invalid/unavailable |
+| Latest release metadata hydration uses canonical manifest route | `downloads.html` | JS fetches `https://lighthouse.buscore.ca/manifest/core/stable.json`; fail-soft if invalid/unavailable |
+| Primary latest-download CTA is counted route | `downloads.html` | Main CTA targets `https://lighthouse.buscore.ca/download/latest` |
 | Latest artifact URL is external object storage | `manifest/core/stable.json` | `latest.download.url` currently points to Cloudflare R2 URL |
 | Previous downloads are hardcoded | `downloads.html` | Multiple static versioned R2 links + static SHA256 blocks |
 | Latest release notes link is external | `manifest/core/stable.json` | Current URL points to GitHub release tag |
