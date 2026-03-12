@@ -111,6 +111,75 @@ header nav a.active {
     color: var(--accent);
 }
 
+.top-nav .nav-tools,
+header nav .nav-tools {
+    position: relative;
+}
+
+.top-nav .nav-tools > summary,
+header nav .nav-tools > summary {
+    list-style: none;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.top-nav .nav-tools > summary::-webkit-details-marker,
+header nav .nav-tools > summary::-webkit-details-marker {
+    display: none;
+}
+
+.top-nav .nav-tools > summary::after,
+header nav .nav-tools > summary::after {
+    content: "\25BE";
+    font-size: 0.72em;
+    margin-left: 0.4rem;
+}
+
+.top-nav .nav-tools[open] > summary,
+header nav .nav-tools[open] > summary,
+.top-nav .nav-tools > summary:hover,
+header nav .nav-tools > summary:hover {
+    color: var(--accent);
+}
+
+.top-nav .nav-tools-menu,
+header nav .nav-tools-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 180px;
+    padding: 8px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #1a2530;
+    box-shadow: var(--shadow-card);
+    z-index: 45;
+}
+
+.top-nav .nav-tools-menu a,
+header nav .nav-tools-menu a {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 6px;
+}
+
+.top-nav .nav-tools[open] > .nav-tools-menu,
+header nav .nav-tools[open] > .nav-tools-menu,
+.top-nav .nav-tools:hover > .nav-tools-menu,
+header nav .nav-tools:hover > .nav-tools-menu,
+.top-nav .nav-tools:focus-within > .nav-tools-menu,
+header nav .nav-tools:focus-within > .nav-tools-menu {
+    display: block;
+}
+
+.top-nav .nav-tools-menu a:hover,
+header nav .nav-tools-menu a:hover {
+    background: rgba(61, 169, 252, 0.12);
+}
+
 main {
     max-width: 1040px;
     margin: 0 auto;
@@ -536,6 +605,24 @@ footer {
     header nav .brand {
         width: 100%;
         margin-right: 0;
+    }
+
+    .top-nav .nav-tools,
+    header nav .nav-tools {
+        width: 100%;
+    }
+
+    .top-nav .nav-tools > summary,
+    header nav .nav-tools > summary {
+        padding: 2px 0;
+    }
+
+    .top-nav .nav-tools-menu,
+    header nav .nav-tools-menu {
+        position: static;
+        margin-top: 8px;
+        width: 100%;
+        box-shadow: none;
     }
 
     h1 {

@@ -168,24 +168,29 @@ function App() {
   const platformKeepsPct = formatBps(platformKeepsBps);
 
   return (
-    <div className="min-h-screen bg-background p-4 md:p-8">
-      <div className="max-w-7xl mx-auto">
-        <header className="mb-8">
+    <div className="pg-app min-h-screen bg-background p-3 md:p-8">
+      <div className="mx-auto w-full max-w-[1120px]">
+        <header className="mb-7 rounded-xl border border-border/70 bg-card/80 p-4 shadow-sm backdrop-blur-sm md:p-6">
+          <Button asChild variant="ghost" size="sm" className="mb-4 h-8 px-2 text-muted-foreground hover:text-foreground">
+            <a href="/" aria-label="Back to BUS Core homepage">
+              &larr; Back to BUS Core
+            </a>
+          </Button>
           <div className="flex items-center gap-3 mb-2">
             <Calculator size={40} weight="duotone" className="text-primary" />
             <h1 className="text-4xl font-bold tracking-tight">Price Guard</h1>
           </div>
-          <p className="text-muted-foreground text-lg">
-            Deterministic pricing calculator with integer-based money math
+          <p className="text-muted-foreground text-base md:text-lg">
+            Deterministic pricing for BUS Core operators using integer-cent math.
           </p>
-          <p className="text-muted-foreground text-xs mt-1">
+          <p className="text-muted-foreground text-xs mt-2">
             All calculations use integer-cent math to prevent floating-point pricing errors.
           </p>
         </header>
 
         {/* Mode toggle */}
         <div className="mb-6">
-          <div className="inline-flex rounded-lg border bg-muted p-1 gap-1" role="tablist" aria-label="Calculator mode">
+          <div className="inline-flex rounded-lg border border-border/70 bg-muted/70 p-1 gap-1" role="tablist" aria-label="Calculator mode">
             <button
               role="tab"
               aria-selected={appMode === 'forward'}
@@ -207,7 +212,7 @@ function App() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
           <Card>
             <CardHeader>
               <CardTitle>Cost Inputs</CardTitle>
@@ -462,7 +467,7 @@ function App() {
             </CardContent>
           </Card>
 
-          <div className="space-y-6">
+          <div className="space-y-6 lg:sticky lg:top-24 lg:self-start">
             {/* Safety Indicator */}
             {safetyIndicator.level === 'LOSS' && (
               <Alert className="bg-destructive/10 border-destructive" role="alert" aria-label="Error: Selling at a loss">
@@ -635,7 +640,7 @@ function App() {
           </div>
         </div>
       </div>
-      <footer className="mt-12 py-4 text-center text-xs text-muted-foreground border-t">
+      <footer className="mt-10 py-4 text-center text-xs text-muted-foreground border-t border-border/70">
         Price Guard — A{' '}
         <a
           href="https://truegoodcraft.ca"
