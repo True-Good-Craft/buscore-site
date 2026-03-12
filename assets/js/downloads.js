@@ -7,6 +7,7 @@
     const sizeEl = document.getElementById('latest-size-bytes');
     const notesEl = document.getElementById('latest-release-notes');
     const statusEl = document.getElementById('manifest-status');
+    const historySectionEl = document.getElementById('release-history-section');
     const historyContainerEl = document.getElementById('release-history');
 
     const showStatus = (message) => {
@@ -22,15 +23,32 @@
         return `Size: ${mb.toFixed(1)} MB`;
     };
 
-    const renderReleaseHistory = (history) => {
-        if (!historyContainerEl || !Array.isArray(history) || history.length <= 1) {
+    const formatReleaseSize = (bytes) => {
+        const value = Number(bytes);
+        if (!Number.isFinite(value) || value <= 0) {
+            return '';
+        }
+        return formatSize(value);
+    };
+
+    const renderReleaseHistory = (history, latestVersion) => {
+        if (!historyContainerEl || !Array.isArray(history) || history.length === 0) {
             return;
         }
 
         historyContainerEl.textContent = '';
+        let renderedCount = 0;
 
-        history.slice(1).forEach((release) => {
+        history.forEach((release) => {
+            if (!release || typeof release !== 'object') {
+                return;
+            }
+
             if (!release || typeof release.version !== 'string' || !release.version) {
+                return;
+            }
+
+            if (latestVersion && release.version === latestVersion) {
                 return;
             }
 
@@ -38,6 +56,7 @@
                 || (release.download && release.download.url)
                 || '';
             const releaseNotesUrl = release.release_notes_url || '';
+            const sizeText = formatReleaseSize(release.size_bytes);
 
             if (typeof downloadUrl !== 'string' || !downloadUrl) {
                 return;
@@ -47,17 +66,26 @@
             const notesHtml = typeof releaseNotesUrl === 'string' && releaseNotesUrl
                 ? `<a href="${releaseNotesUrl}" class="release-notes">Notes</a>`
                 : '';
+            const sizeHtml = sizeText
+                ? `<span class="version-meta">${sizeText}</span>`
+                : '';
 
             row.innerHTML = `
                 <div class="release-row">
                     <span class="release-version">v${release.version}</span>
+                    ${sizeHtml}
                     <a href="${downloadUrl}" class="release-download">Download</a>
                     ${notesHtml}
                 </div>
             `;
 
             historyContainerEl.appendChild(row);
+            renderedCount += 1;
         });
+
+        if (historySectionEl) {
+            historySectionEl.hidden = renderedCount === 0;
+        }
     };
 
     fetch(MANIFEST_URL, { cache: 'no-store' })
@@ -105,7 +133,7 @@
                 notesEl.href = releaseNotesUrl;
             }
 
-            renderReleaseHistory(history);
+            renderReleaseHistory(history, version);
         })
         .catch(() => {
             showStatus('Live release details are temporarily unavailable. Showing default download information.');
