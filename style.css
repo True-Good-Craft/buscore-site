@@ -554,3 +554,143 @@ footer {
         padding: 40px 16px 32px;
     }
 }
+
+/* ============================================================
+   BLOG STYLES
+   ============================================================ */
+
+/* Blog index page */
+.blog-index {
+    margin-top: 24px;
+}
+
+.blog-index-entry {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.blog-index-entry:first-child {
+    border-top: 1px solid var(--line);
+}
+
+.blog-index-entry h2 {
+    font-size: clamp(1.2rem, 1.375rem, 1.375rem);
+    margin-bottom: 6px;
+}
+
+.blog-index-entry h2 a {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.blog-index-entry h2 a:hover {
+    color: var(--accent);
+}
+
+.blog-index-entry p {
+    margin-bottom: 6px;
+}
+
+/* Post meta (date line) */
+.post-meta {
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin-bottom: 10px;
+}
+
+/* Blog post page */
+.blog-post {
+    max-width: 720px;
+}
+
+.post-header {
+    padding-top: 24px;
+    margin-bottom: 32px;
+}
+
+.post-back {
+    font-size: 0.88rem;
+    margin-bottom: 16px;
+}
+
+.post-back a {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.post-back a:hover {
+    color: var(--accent);
+}
+
+.post-header h1 {
+    margin-bottom: 10px;
+    font-size: clamp(1.75rem, 2.2rem, 2.2rem);
+}
+
+/* Post body prose */
+.post-body {
+    line-height: 1.8;
+}
+
+.post-body h2 {
+    font-size: clamp(1.3rem, 1.5rem, 1.5rem);
+    margin-top: 36px;
+    margin-bottom: 12px;
+}
+
+.post-body h3 {
+    font-size: clamp(1.1rem, 1.25rem, 1.25rem);
+    margin-top: 28px;
+    margin-bottom: 10px;
+}
+
+.post-body p {
+    margin-bottom: 18px;
+}
+
+.post-body ul,
+.post-body ol {
+    margin-bottom: 18px;
+    padding-left: 24px;
+}
+
+.post-body li {
+    margin-bottom: 8px;
+}
+
+.post-body code {
+    font-size: 0.85rem;
+}
+
+.post-body pre {
+    background: var(--mono-bg);
+    border: 1px solid var(--mono-line);
+    color: var(--mono-ink);
+    border-radius: 6px;
+    padding: 16px 20px;
+    overflow-x: auto;
+    margin-bottom: 18px;
+}
+
+.post-body blockquote {
+    border-left: 3px solid var(--accent);
+    margin: 0 0 18px 0;
+    padding: 8px 0 8px 20px;
+    color: var(--muted);
+}
+
+/* Post footer */
+.post-footer {
+    margin-top: 48px;
+    padding-bottom: 48px;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.post-footer hr {
+    margin-bottom: 20px;
+}
+
+.post-footer p {
+    margin-bottom: 8px;
+}
