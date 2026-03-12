@@ -9,6 +9,7 @@ BUS Core website is a static marketing-and-distribution site for the BUS Core de
 - Provide release/change history (`changelog.html`).
 - Provide trust/security statements, contact routes, privacy, and licensing (`trust.html`, `contact.html`, `privacy.html`, `license.html`).
 - Provide crawl metadata (`robots.txt`, `sitemap.xml`).
+- Provide a first-party blog for product-adjacent and ops-adjacent content (`blog/`).
 
 The site is not implemented as a web app backend in this repository; behavior is static HTML/CSS with one client-side fetch in `downloads.html`.
 
@@ -40,7 +41,12 @@ Concise structure map (major items only):
       *.jpg, *.png
     images/   (empty)
     js/       (empty)
-  downloads/  (empty)
+downloads/  (empty)
+blog/
+index.html
+_post-template.html
+spreadsheets-to-buscore/
+index.html
 ```
 
 Role of major files/folders:
@@ -192,3 +198,46 @@ Objective drifts/ambiguities based on repository evidence:
 - `downloads/` directory exists but is empty; download delivery is external (R2 URLs and manifest URL values).
 - Any relationship to "Lighthouse" beyond user-provided context is not visible in site code.
   - Lighthouse interaction: Not determined from repository evidence.
+
+## 11. Blog
+
+The blog is a first-party, static HTML blog hosted at `buscore.ca/blog/`.
+
+**Purpose:** Product-adjacent and ops-adjacent content. Topics include: why spreadsheets fail for small manufacturing operations, the gap between spreadsheets and ERP, BUS Core release and hardening writeups, and local-first/self-host operational content.
+
+**URL structure:**
+- Index: `/blog/` → `blog/index.html`
+- Posts: `/blog/{slug}/` → `blog/{slug}/index.html`
+
+**Content model (per post):**
+- Title (`<title>`, `<h1>`)
+- Slug (directory name, permanent)
+- Meta description
+- Canonical URL
+- Publish date (`<time>` element + `article:published_time`)
+- OG tags: title, description, url, image, type=article
+- Twitter card tags
+- Author: True Good Craft Inc.
+
+**OG image:** All posts use `/assets/images/og-default.png` as the default fallback until post-specific images are available.
+
+**Operational model:**
+1. Copy `blog/_post-template.html` to `blog/{slug}/index.html`
+2. Fill all fields marked FILL
+3. Add one `<article>` entry to the top of `blog/index.html`
+4. Add a `<url>` entry to `sitemap.xml`
+5. Deploy
+
+**Published posts:**
+
+| Slug | Title | Published |
+|---|---|---|
+| `spreadsheets-to-buscore` | When Spreadsheets Stop Working: The Messy Middle of Small Manufacturing | 2026-03-11 |
+
+**Navigation:** Blog link appears in the main nav of all site pages between Community and Contact.
+
+**Stylesheet:** Blog styles are appended to the root `style.css` under the `/* BLOG STYLES */` comment block. No separate stylesheet.
+
+**Not present by design:** No CMS, no Markdown pipeline, no build step, no tags, no pagination, no RSS (deferred to future).
+
+---
