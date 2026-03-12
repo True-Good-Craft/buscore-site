@@ -1,0 +1,4 @@
+# Build artifacts
+.deploy/
+Price-Guard/node_modules/
+Price-Guard/dist/

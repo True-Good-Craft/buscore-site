@@ -11,16 +11,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit&family=Cormorant&family=Fira+Code&display=swap">
-    <link href="/src/main.css" rel="stylesheet" />
+    <link href="./src/main.css" rel="stylesheet" />
 </head>
 
 <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="./src/main.tsx"></script>
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js');
+          navigator.serviceWorker.register('%BASE_URL%sw.js');
         });
       }
     </script>

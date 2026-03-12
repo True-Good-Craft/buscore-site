@@ -1,6 +1,6 @@
 // Price Guard Service Worker — offline cache strategy
 const CACHE_NAME = 'price-guard-v1';
-const PRECACHE_URLS = ['/', '/index.html'];
+const PRECACHE_URLS = ['/priceguard/', '/priceguard/index.html'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -23,7 +23,7 @@ self.addEventListener('fetch', (event) => {
   if (event.request.mode === 'navigate') {
     event.respondWith(
       fetch(event.request).catch(() =>
-        caches.match('/index.html').then((r) => r || fetch(event.request))
+        caches.match('/priceguard/index.html').then((r) => r || fetch(event.request))
       )
     );
     return;

@@ -1,0 +1,13 @@
+{
+  "name": "buscore-site",
+  "compatibility_date": "2025-09-27",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": ".deploy"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
