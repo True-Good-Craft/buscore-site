@@ -42,8 +42,9 @@ jobs:
             . .deploy/
           cp -r Price-Guard/dist/. .deploy/priceguard/
 
-      - name: Deploy to Cloudflare Workers
+      - name: Deploy staged static site to Cloudflare
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --config wrangler.jsonc --assets .deploy
