@@ -30,7 +30,17 @@
 </head>
 <body>
 
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "22e6e7aa34d34328bd7219de69f5439c"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics -->
+<script>
+  if (localStorage.getItem("noAnalytics") !== "1") {
+    const s = document.createElement("script");
+    s.defer = true;
+    s.src = "https://static.cloudflareinsights.com/beacon.min.js";
+    s.setAttribute("data-cf-beacon", '{"token": "22e6e7aa34d34328bd7219de69f5439c"}');
+    document.head.appendChild(s);
+  }
+</script>
+<!-- End Cloudflare Web Analytics -->
 
 <header>
     <nav class="top-nav">
