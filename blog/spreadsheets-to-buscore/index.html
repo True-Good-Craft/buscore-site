@@ -53,58 +53,73 @@
     <div class="post-header">
         <p class="post-back"><a href="/blog/">&larr; Blog</a></p>
         <h1>When Spreadsheets Stop Working: The Messy Middle of Small Manufacturing</h1>
-        <p class="post-meta"><time datetime="2026-03-11">March 11, 2026</time> &mdash; True Good Craft Inc.</p>
+        <p class="post-meta"><time datetime="2026-03-11">March 11, 2026</time> — True Good Craft Inc.</p>
     </div>
 
     <div class="post-body">
 
-        <p>Most small manufacturing shops start on spreadsheets. This is the right call. A spreadsheet is fast to set up, flexible, and free. For a small operation just finding its footing, it works.</p>
+        <p>Most small shops start on spreadsheets because, frankly, that is the obvious move. They are fast, flexible, familiar, and free. If you are just trying to get product out the door and keep your head above water, a spreadsheet is good enough.</p>
 
-        <p>Then the operation grows slightly. Not dramatically &mdash; just slightly. A few more SKUs. A couple of new materials. An extra production run per week. And the spreadsheet starts to show cracks.</p>
+        <p>Until it isn't.</p>
+
+        <p>Usually the failure is not dramatic. You do not wake up one morning to a giant red warning light. What happens is slower and more annoying. You add a few more SKUs. A few more materials. A few more production runs. Then the spreadsheet stops being a useful tool and starts becoming a pile of assumptions.</p>
 
         <h2>What breaks first</h2>
 
-        <p>It is rarely one dramatic failure. It is a slow accumulation of small problems.</p>
+        <p>Inventory is usually the first thing to drift.</p>
 
-        <p>Inventory drift is usually the first sign. The spreadsheet says you have 4 metres of webbing. You go to the shelf and find 1.5. Somewhere between the last three production runs, the tracking fell behind. You are not sure when. It does not matter when &mdash; what matters is that you are now making decisions on bad numbers.</p>
+        <p>The sheet says you have 4 metres of webbing. The shelf says you have 1.5. Somewhere along the line, something did not get recorded, got recorded late, or got adjusted by hand because it was easier in the moment. Now you are making purchasing and production decisions from numbers you do not trust.</p>
 
-        <p>Pricing comes next. Early on, you estimated your material cost and added a margin. That estimate made sense at the time. But material prices changed, your recipe changed slightly, and the labour component was always a guess. You are now selling product at a price that may or may not cover your actual cost. You do not know for certain. This is an uncomfortable position to be in as volume grows.</p>
+        <p>That is the real problem. Not that the count is off. It is that the system has stopped being authoritative.</p>
 
-        <p>Then there is batch history. What did the last run of that product actually cost? Which materials were consumed? Was there anything unusual about that run? If the answers live in memory or in a cell you might have overwritten, they are effectively gone.</p>
+        <p>Next comes costing.</p>
+
+        <p>Early on, you can get away with rough numbers. Material cost plus a margin, maybe some guessed labour, call it close enough and move on. But as soon as the shop gets even slightly busier, that starts to rot. Material prices move. Recipes change. Waste shows up. Small process differences add up. You end up selling things at a price that feels reasonable, but you cannot say with a straight face what they actually cost to make.</p>
+
+        <p>Then history starts disappearing.</p>
+
+        <p>What did the last batch really consume? What did it actually produce? Did that run go sideways because of material loss, a substitution, or some odd one-off decision on the bench? If the answer lives in somebody's head, or in a spreadsheet cell that got reused three weeks later, then for practical purposes it is gone.</p>
 
         <h2>Why ERP is not the answer</h2>
 
-        <p>At this point, a well-meaning person will suggest an ERP system. They are not wrong about the category of problem. They are wrong about the scale of solution.</p>
+        <p>This is usually where somebody says, "Sounds like you need an ERP."</p>
 
-        <p>ERP systems are designed for organizations with dedicated staff, implementation budgets, and operational complexity that justifies the overhead. A small shop making bags, enclosures, or fabricated parts does not have any of those things. An ERP system requires more maintenance than the operation it is meant to support. It is the wrong tool.</p>
+        <p>They are not completely wrong. They have identified the category of problem. They have just overshot the scale of the solution by a country mile.</p>
 
-        <h2>The gap has a name</h2>
+        <p>Most small shops do not need an enterprise system. They do not need implementation consultants, admin overhead, cloud accounts, training plans, and a software bill that acts like a second utility payment. They need a system that can reliably track what comes in, what gets consumed, what gets built, and what it cost. That is it.</p>
 
-        <p>The space between a spreadsheet and an ERP system is not empty. It is just underserved. It is the operational reality of a small shop that builds real products in real batches and needs structured tracking without enterprise overhead.</p>
+        <p>The usual ERP answer is technically valid and operationally ridiculous.</p>
 
-        <p>This is where BUS Core sits.</p>
+        <h2>The gap is real</h2>
 
-        <p>BUS Core is local-first operational software. It runs on your machine. Your data stays in a local SQLite database. There is no cloud sync, no subscription, no account required. You install it, you open a browser tab to <code>localhost:8765</code>, and you start entering your materials and recipes.</p>
+        <p>There is a real gap between "good luck with your spreadsheet" and "welcome to enterprise software hell." A lot of small manufacturing shops live right there. They are building real products, in real batches, with real material costs, but they do not have the size or appetite for heavyweight software.</p>
 
-        <p>The core workflow is structured around the same loop every small manufacturing operation runs:</p>
+        <p>That is the gap BUS Core is built for.</p>
+
+        <p>BUS Core is local-first operational software for small manufacturing work. It runs on your own machine. Data stays local in SQLite. There is no cloud dependency, no monthly fee, and no account circus. You install it, open a browser tab to <code>localhost:8765</code>, and start working.</p>
+
+        <p>The operating loop is simple on purpose:</p>
 
         <ul>
-            <li>Materials go in as inventory.</li>
-            <li>Recipes (Blueprints) define what a production run consumes and produces.</li>
-            <li>A Manufacturing Run records what was actually built and deducts materials automatically.</li>
-            <li>Costs are calculated from real inputs, not estimates.</li>
-            <li>The Production Ledger holds the history.</li>
+            <li>materials go in as inventory</li>
+            <li>Blueprints define what a run consumes and produces</li>
+            <li>Manufacturing Runs record what was actually built</li>
+            <li>stock gets deducted from real usage</li>
+            <li>costs come from actual inputs instead of vibes</li>
+            <li>the Production Ledger keeps the history</li>
         </ul>
 
-        <p>That loop is not complicated. But enforcing it consistently &mdash; run after run, week after week &mdash; is where spreadsheets fail and where structured tooling pays off.</p>
+        <p>None of that is glamorous. Good. It should not be. This kind of software should be boring in the right ways. The value is not novelty. The value is that the numbers stay tied to reality run after run.</p>
 
-        <h2>A practical starting point</h2>
+        <h2>A practical threshold</h2>
 
-        <p>If your operation has reached the point where inventory drift is a regular problem, or where you genuinely do not know the cost of your last production run, that is the signal. You do not need a large system. You need a small, reliable one.</p>
+        <p>If you are regularly finding stock mismatches, second-guessing your pricing, or realizing you cannot cleanly explain what your last production run cost, that is the point where the spreadsheet has stopped scaling with the operation.</p>
 
-        <p>BUS Core is open source under the AGPL. The current release is available on the downloads page. If you run into something, the Reddit community and Discord are active.</p>
+        <p>You do not need a giant system. You need a smaller one that is actually built for the job.</p>
 
-        <p>The gap between spreadsheets and ERP is real. It has a practical solution.</p>
+        <p>BUS Core is open source under the AGPL. The current release is on the downloads page. If you want to follow along, ask questions, or poke holes in it, the Reddit community and Discord are there.</p>
+
+        <p>The messy middle is real. Spreadsheet pain is real. The answer does not have to be enterprise software.</p>
 
     </div>
 
