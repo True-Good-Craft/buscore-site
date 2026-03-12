@@ -1,0 +1,286 @@
+Below is the structured execution plan for **Price Guard** based on:
+
+* Current repo state
+* Earlier pricing engine structure (integer-cent math, solver tightening, rounding modes)
+* Your SoT-first workflow discipline
+* Your broader TGC ecosystem strategy
+
+This is written as a save-ready strategic plan.
+
+---
+
+# PRICE GUARD — EXECUTION PLAN
+
+## Phase 1: Public Free MVP (Website Tool)
+
+---
+
+## 1. Product Positioning
+
+**Price Guard**
+A deterministic pricing calculator for makers and small sellers.
+
+Core framing:
+
+> Prevent selling at a loss.
+
+This is not “a calculator.”
+It is a **pricing guardrail engine**.
+
+---
+
+## 2. Current Technical Baseline (From Repo + Context)
+
+### Stack
+
+* TypeScript (84%)
+* Local-only browser execution
+* Static site deployable to Cloudflare Pages
+* SoT-first workflow enforced
+* Unit tests included
+* Deterministic pricing engine
+* Rounding modes present
+* Solver iterations already tightened
+
+### Pricing Engine Structure (from earlier interface discussion)
+
+Inputs:
+
+* Materials
+* Packaging
+* Labor (minutes + rate)
+* Overhead (percent or fixed)
+* Platform fee (percent + fixed)
+* Shipping (optional inclusion)
+* Pricing goal (margin or profit)
+* Rounding mode
+
+Outputs:
+
+* Break-even
+* Recommended price
+* Profit
+* Margin
+* Cost breakdown
+* Impossible-state detection (if implemented)
+
+Math philosophy:
+
+* Integer cents internally
+* Rounding applied post-calculation
+* Deterministic solver logic
+
+This foundation is solid.
+
+---
+
+## 3. MVP Scope (Free Website Version)
+
+The first public version must:
+
+### Must Have
+
+* Required price calculation
+* Reverse calculation mode (sale price → actual profit)
+* Cost breakdown display
+* Platform fee transparency
+* Margin safety indicator
+* Psychological rounding options
+* Offline-capable PWA
+* Clean branding footer
+
+### Must Not Have (Yet)
+
+* PDF export
+* Save profiles
+* Multi-scenario compare
+* Custom logo upload
+* Account system
+* Cloud sync
+
+Free version = Trust engine.
+
+---
+
+## 4. UX Improvements Before Public Launch
+
+### A. Safety Indicator System
+
+Add dynamic state messaging:
+
+* Loss → Red warning
+* Margin < 10% → Amber caution
+* Margin target achieved → Green confirmation
+
+Positioned above results.
+
+Purpose: Emotional reinforcement.
+
+---
+
+### B. Platform Take Emphasis
+
+Add explicit:
+
+“Platform keeps: $X (Y%)”
+
+This is powerful psychologically and shareable.
+
+---
+
+### C. Reverse Mode
+
+Toggle:
+
+* Calculate Required Price
+* Calculate Profit From Sale Price
+
+This is high-value and differentiating.
+
+---
+
+### D. Rounding Expansion
+
+Add:
+
+* .99
+* .95
+* Ceiling dollar
+* Floor dollar
+
+Applied after full math resolution.
+
+Unit test rounding edge cases.
+
+---
+
+## 5. Convert to PWA (Still Free)
+
+Make Price Guard installable:
+
+* manifest.json
+* Service worker
+* Offline support
+* Standalone display mode
+* Icons (192px, 512px)
+
+Outcome:
+Feels like software.
+Increases perceived authority.
+
+---
+
+## 6. Deployment Strategy
+
+### Repo
+
+Keep single repo.
+
+Do not fork for Pro yet.
+
+### Hosting
+
+Deploy to:
+
+priceguard.truegoodcraft.com
+
+### Footer
+
+Minimal:
+
+Price Guard — A True Good Craft Tool
+
+Link to main domain.
+
+---
+
+## 7. Analytics Philosophy
+
+If added:
+
+* Privacy-respecting
+* No invasive tracking
+* Possibly Cloudflare analytics only
+
+Do not degrade trust.
+
+---
+
+# Phase 2 (Future) — Price Guard Pro
+
+Not now. Only after usage validation.
+
+Potential unlock:
+
+* PDF export (branded)
+* Save profiles locally
+* Scenario compare mode
+* Custom logo
+* Remove TGC footer
+* Advanced reporting
+
+License model:
+
+* One-time purchase
+* Feature flag unlock
+* No subscription
+
+---
+
+# Strategic Role Inside TGC
+
+Price Guard functions as:
+
+* Public trust builder
+* Demonstration of deterministic financial tooling
+* Entry point into broader TGC ecosystem
+* Potential feeder into BUS Core
+
+It should remain simple, sharp, and defensible.
+
+---
+
+# Immediate Next Steps Checklist
+
+1. Add safety indicator UI
+2. Add reverse mode
+3. Expand rounding options
+4. Implement PWA support
+5. Final UI polish
+6. Update SoT
+7. Update README positioning
+8. Deploy to subdomain
+9. Announce softly (Indie Hackers / LinkedIn)
+
+---
+
+# What We Are Not Doing
+
+* Overbuilding Pro prematurely
+* Adding accounts
+* Adding backend
+* Adding unnecessary UI complexity
+* Turning this into SaaS theater
+
+---
+
+# Definition of Success (MVP)
+
+Within 30 days:
+
+* Tool publicly accessible
+* PWA installable
+* Used organically
+* At least one unsolicited positive comment
+* No math errors discovered
+
+If those happen, we proceed to Pro.
+
+---
+
+If you want, next we formalize:
+
+* The canonical pricing formula spec
+* Or the official SoT delta for Price Guard v1.0.0 Free
+
+Your call.

@@ -1,0 +1,295 @@
+/* ── Reset & base ─────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f8f9fa;
+  color: #1a1a1a;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ───────────────────────────────────────── */
+.app-header {
+  padding: 1.5rem 2rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.app-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f4c81;
+}
+
+.app-tagline {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.25rem;
+}
+
+/* ── Two-panel layout ─────────────────────────────── */
+.app-layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Panels ───────────────────────────────────────── */
+.panel {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.panel h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #0f4c81;
+}
+
+.placeholder-note {
+  font-size: 0.875rem;
+  color: #888;
+  font-style: italic;
+}
+
+/* ── Footer ───────────────────────────────────────── */
+.app-footer {
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+  border-top: 1px solid #e0e0e0;
+  background: #ffffff;
+}
+
+.scaffold-notice {
+  color: #2a7d4f;
+  font-weight: 500;
+}
+
+/* ── Form sections ──────────────────────────────────── */
+.form-section {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.form-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.form-section h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #555;
+  margin-bottom: 0.6rem;
+}
+
+.field-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.field-row label {
+  font-size: 0.85rem;
+  color: #333;
+  margin-bottom: 0.2rem;
+}
+
+.field-row input[type="text"],
+.field-row select {
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: #fff;
+  max-width: 200px;
+}
+
+.field-row input[type="text"]:focus,
+.field-row select:focus {
+  outline: 2px solid #0f4c81;
+  border-color: transparent;
+}
+
+.field-error {
+  font-size: 0.78rem;
+  color: #c0392b;
+  min-height: 1em;
+  margin-top: 0.15rem;
+}
+
+.radio-row {
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.radio-row label {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.checkbox-row label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+
+/* ── Results panel ────────────────────────────────── */
+.results-hint {
+  font-size: 0.875rem;
+  color: #888;
+  font-style: italic;
+}
+
+.product-title {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.global-error {
+  color: #c0392b;
+  background: #fdecea;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.warnings {
+  margin-bottom: 0.75rem;
+}
+
+.warning {
+  color: #856404;
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.result-summary {
+  margin-bottom: 1rem;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-hero {
+  background: #f0f6ff;
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 0.5rem;
+  border: none;
+}
+
+.result-label {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.result-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.result-price {
+  font-size: 1.5rem;
+  color: #0f4c81;
+}
+
+/* ── Breakdown table ──────────────────────────────── */
+.breakdown {
+  margin-top: 1rem;
+}
+
+.breakdown summary {
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.breakdown-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.breakdown-table td {
+  padding: 0.2rem 0.4rem;
+  color: #444;
+}
+
+.breakdown-table td:last-child {
+  text-align: right;
+  font-weight: 500;
+}
+
+.breakdown-table tr.subtotal td {
+  border-top: 1px solid #ccc;
+  font-weight: 600;
+  color: #222;
+}
+
+.breakdown-table tr.profit-row td {
+  color: #2a7d4f;
+  font-weight: 700;
+  border-top: 1px solid #aaa;
+}
+
+.breakdown-table tr.loss-row td {
+  color: #c0392b;
+  font-weight: 700;
+  border-top: 1px solid #aaa;
+}
+
+.loss {
+  color: #c0392b !important;
+}
