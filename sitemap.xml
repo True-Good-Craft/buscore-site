@@ -54,4 +54,10 @@
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://buscore.ca/blog/the-awkward-middle-between-spreadsheets-and-erp/</loc>
+    <lastmod>2026-03-11</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
