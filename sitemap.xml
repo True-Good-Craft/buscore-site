@@ -44,9 +44,15 @@
   </url>
   <url>
     <loc>https://buscore.ca/blog/</loc>
-    <lastmod>2026-03-11</lastmod>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://buscore.ca/blog/why-4-overnight-downloads-matter-more-than-400-empty-impressions/</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://buscore.ca/blog/spreadsheets-to-buscore/</loc>
