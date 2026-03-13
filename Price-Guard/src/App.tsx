@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Calculator, Warning, ArrowCircleDown, ArrowCircleUp, CheckCircle } from '@phosphor-icons/react';
+import { Warning, ArrowCircleDown, ArrowCircleUp, CheckCircle } from '@phosphor-icons/react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -177,7 +177,13 @@ function App() {
             </a>
           </Button>
           <div className="flex items-center gap-3 mb-2">
-            <Calculator size={40} weight="duotone" className="text-primary" />
+            <img
+              src={`${import.meta.env.BASE_URL}icons/icon-192.png`}
+              alt="Price Guard icon"
+              className="h-10 w-10 rounded-md object-cover"
+              loading="eager"
+              decoding="async"
+            />
             <h1 className="text-4xl font-bold tracking-tight">Price Guard</h1>
           </div>
           <p className="text-muted-foreground text-base md:text-lg">
