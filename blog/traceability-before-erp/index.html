@@ -71,7 +71,78 @@
 
     <div class="post-body">
 
-        <p>This post is coming soon. It will cover why small manufacturing shops need traceability long before they need ERP, and how to start building it with BUS Core.</p>
+        <p>Small shops do not need enterprise-grade traceability first. They need enough traceability to answer what happened, where the material came from, and which jobs were affected.</p>
+
+        <h2>Why traceability matters before ERP</h2>
+
+        <p>Most conversations about traceability start with compliance. Somebody mentions ISO, somebody mentions audits, and the assumption becomes that traceability is something you bolt on when a customer or regulator forces you to. That framing is backwards for a small shop.</p>
+
+        <p>Traceability matters because without it, you cannot diagnose problems. A batch comes out wrong. A customer reports a defect. Material behaves differently than it did last time. If you cannot trace what went into that run, when it happened, who was on the bench, and what material lot was used, then every investigation starts from scratch.</p>
+
+        <p>That is not a compliance problem. That is an operational one. You are spending time re-discovering things that should already be recorded.</p>
+
+        <p>Small shops hit this earlier than they expect. It does not take hundreds of SKUs or thousands of orders. It takes a handful of product lines, a few material suppliers, and enough production runs that memory stops being reliable.</p>
+
+        <h2>The minimum you actually need</h2>
+
+        <p>Enterprise traceability means serial numbers, lot genealogy trees, chain-of-custody records, and audit trails that span multiple facilities. A small shop does not need that. What it needs is enough structure to answer basic diagnostic questions.</p>
+
+        <p>The minimum useful set is short:</p>
+
+        <ul>
+            <li>A job or run ID that ties a production event to a specific point in time</li>
+            <li>Which materials were consumed, by name and ideally by lot or batch</li>
+            <li>The date the run happened</li>
+            <li>Who ran it, if more than one person works the shop</li>
+            <li>Which machine or process was used, if you have more than one way to make the same thing</li>
+        </ul>
+
+        <p>That is it. Five fields. None of them require special software to define. But if they are recorded consistently, run after run, you can answer questions that would otherwise require guessing.</p>
+
+        <p>Which material lot was in use when the defect appeared? Check the run record. Did the problem start after a supplier change? Compare the lot data across recent runs. Was it the same operator both times? Look it up.</p>
+
+        <p>Without those records, the answer to every quality question is "I think" or "probably." That is not traceability. That is hope.</p>
+
+        <h2>What small shops get wrong</h2>
+
+        <p>The most common mistake is skipping traceability entirely because it looks like an enterprise requirement. The second most common mistake is trying to implement too much at once.</p>
+
+        <p>Full serialization, barcode scanning, supplier integration, multi-level genealogy — these are real things that real companies need, eventually. But if you try to start there, the overhead kills adoption before it produces any value. People stop filling in the fields because there are too many of them, and after a few weeks the system is half-populated and useless.</p>
+
+        <p>The other mistake is assuming traceability is only about proving compliance to an outside party. For a small shop, the primary consumer of traceability data is you. It is for your own diagnosis, your own root-cause work, your own understanding of what happened and why. If you ever need to show it to a customer or auditor, that is a bonus. The day-to-day value is internal.</p>
+
+        <h2>Traceability as root-cause analysis</h2>
+
+        <p>The real payoff of even basic traceability is root-cause analysis that does not depend on memory.</p>
+
+        <p>Say you run a small batch shop and your last three runs of the same product had inconsistent output. Without traceability, you start asking people what they remember. Did we change anything? Was the material different? Who was running the press? That conversation goes in circles because memory is unreliable and people fill gaps with assumptions.</p>
+
+        <p>With even minimal run records, you pull up the three runs. You see that two of them used material from a new supplier lot. Or that one of them ran on a different machine. Or that the scrap rate spiked on a specific date. The investigation narrows in minutes instead of hours.</p>
+
+        <p>This is not sophisticated analytics. It is just having the records. The hard part is not the analysis. The hard part is recording things consistently enough that the data exists when you need it.</p>
+
+        <h2>What to track first</h2>
+
+        <p>If you are starting from nothing, do not try to track everything. Start with the fields that answer the questions you are most likely to ask.</p>
+
+        <p>Run ID comes first. Every production event gets an identifier. It does not have to be fancy. A sequential number works. The point is that every run is a distinct, addressable thing you can refer back to.</p>
+
+        <p>Material consumed comes next. What went into the run. If you know the lot or batch number from the supplier, record it. If you do not, at least record the material name and the quantity pulled. That alone lets you correlate problems to specific material purchases.</p>
+
+        <p>Date is obvious but easy to lose. If your system records it automatically, good. If you are doing it by hand, write it down. A run without a date is nearly useless for diagnosis because you cannot place it in sequence with anything else.</p>
+
+        <p>Operator and machine matter when you have more than one of either. If you are a one-person shop with one printer or one press, you can skip these for now. But the moment a second person or a second machine enters the picture, these fields start carrying weight.</p>
+
+        <p>That is the starting set. You can add more later — output quantity, scrap count, process parameters, environmental notes. But the five basics will cover the majority of diagnostic situations a small shop actually faces.</p>
+
+        <h2>Continue reading</h2>
+
+        <ul>
+            <li><a href="/blog/field-guide/">Small Shop Operations Field Guide</a></li>
+            <li><a href="/blog/inventory-drift/">Inventory Drift: Why Your Numbers Stop Matching Reality</a></li>
+            <li><a href="/blog/the-awkward-middle-between-spreadsheets-and-erp/">The Awkward Middle Between Spreadsheets and ERP</a></li>
+            <li><a href="/downloads.html">Download BUS Core</a></li>
+        </ul>
 
     </div>
 
