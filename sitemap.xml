@@ -67,6 +67,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://buscore.ca/blog/field-guide/</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://buscore.ca/blog/inventory-drift/</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://buscore.ca/use-cases/laser-engraving-shop/</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
