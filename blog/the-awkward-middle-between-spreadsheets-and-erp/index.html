@@ -92,7 +92,27 @@
 
         <p>Then history starts disappearing. What did a specific run consume? What did it produce? What went wrong? What got substituted? If that information lived in a cell that got reused or overwritten the next time the file changed, it is gone.</p>
 
-        <h2>Why ERP overshoots the problem</h2>
+        <h2>What actually breaks in the messy middle</h2>
+
+        <p>This is the reality for a lot of small manufacturing work. A workshop with a real product line. A maker or fabricator doing repeatable batches. Real materials. Real consumption. Real replenishment. Real production runs. Real costing.</p>
+
+        <p>This is not a hobby. There is real money on the line.</p>
+
+        <p>But it is also not a 200-person company. You do not need a giant procurement module, some elaborate multi-site workflow, or an enterprise portal for the sake of having one. You need to know what is on hand, what a run should use, what it actually used, what got built, and what it cost.</p>
+
+        <p>What breaks is not one thing. It is several small things at once. Stock counts drift because recording is manual and inconsistent. Costing drifts because material prices change faster than the spreadsheet gets updated. Run history vanishes because cells get reused. And none of these failures announce themselves. They just quietly make every decision a little less grounded.</p>
+
+        <h2>The trust collapse</h2>
+
+        <p>The real damage happens when people stop trusting the system. Not all at once. Gradually.</p>
+
+        <p>Someone checks the spreadsheet, finds the count wrong, and stops checking the spreadsheet. Someone else notices a cost formula that has not been updated in months and starts estimating by hand. A third person realizes the run history is incomplete and stops recording details because the sheet is already unreliable.</p>
+
+        <p>Once trust collapses, the system is no longer driving the operation. Memory is. Workarounds are. Walking the shop floor and counting things by eye is. The tool that was supposed to save time is now something people route around.</p>
+
+        <p>This is where most small shops land. Not because they made a mistake. Because the tool was never built to handle the workload it is carrying.</p>
+
+        <h2>Why ERP often overshoots the problem</h2>
 
         <p>ERP is built for companies that can afford overhead. Setup overhead, admin overhead, money overhead, people overhead. That is fine for a bigger company. It is a bad fit for a small shop trying to keep stock, production, and costing straight.</p>
 
@@ -102,75 +122,41 @@
 
         <p>The mismatch is not just cost. Most ERP systems are built for large organizations, layered workflows, and complexity that small shops simply do not have. If all you really need is clean inventory, repeatable production tracking, and usable costing, most ERP systems are solving a much bigger problem than the one in front of you.</p>
 
-        <h2>What the awkward middle actually looks like</h2>
+        <h2>What this phase actually needs</h2>
 
-        <p>This is the reality for a lot of small manufacturing work. A workshop with a real product line. A maker or fabricator doing repeatable batches. Real materials. Real consumption. Real replenishment. Real production runs. Real costing.</p>
+        <p>What the messy middle needs is not a stripped-down ERP or a fancier spreadsheet. It needs a system built for the actual scale and rhythm of small manufacturing work.</p>
 
-        <p>This is not a hobby. There is real money on the line.</p>
+        <p>That means inventory tracking where recording consumption is part of the production action, not a separate task. It means blueprints that define what a run should consume and produce, so you have a repeatable baseline. It means run records that capture what actually happened, with stock adjustments based on real usage. And it means a ledger that keeps the history so you can look back and understand what went right or wrong.</p>
 
-        <p>But it is also not a 200-person company. You do not need a giant procurement module, some elaborate multi-site workflow, or an enterprise portal for the sake of having one. You need to know what is on hand, what a run should use, what it actually used, what got built, and what it cost.</p>
+        <p>BUS Core is built for exactly this. It is local-first operational software that runs on your own machine. Data stays local in SQLite. No cloud dependency, no subscription, no account required. The operating loop is narrow on purpose: materials come in as inventory, Blueprints define runs, Manufacturing Runs record what was built, stock gets deducted from real usage, costs come from actual inputs, and the Production Ledger keeps everything auditable.</p>
 
-        <p>That is not a huge problem, but it is a real one. And the software options for it are usually either too flimsy or way too heavy.</p>
+        <p>It is not trying to do payroll, accounting, supplier portals, or every other enterprise function. It handles the operational layer that spreadsheets are bad at keeping straight and that ERP usually overcomplicates.</p>
 
-        <h2>Where BUS Core fits</h2>
+        <h2>This is a real category</h2>
 
-        <p>BUS Core is built for that gap. It is local-first operational software for small manufacturing work. It runs on your own machine. Data stays local in SQLite. No cloud dependency, no subscription, no account required.</p>
+        <p>The awkward middle is not a transition phase. For many small shops, it is the permanent operating reality. They are not on their way to becoming enterprises. They are small manufacturers doing real work at a real scale, and that scale does not require enterprise tooling.</p>
 
-        <p>BUS Core is narrow on purpose.</p>
+        <p>The gap between spreadsheets and ERP is a real operational stage for small manufacturing. It has distinct characteristics: production is repeatable but not high-volume, inventory matters but lot counts are manageable, costing needs to be accurate but does not require full cost accounting, and traceability is needed for diagnosis rather than regulatory compliance.</p>
 
-        <p>You track inventory: what materials you have, what they cost, and what is on hand. You define Blueprints: what a run consumes and produces. You record Manufacturing Runs: what actually got built and what stock was really used. The Production Ledger keeps the history clean.</p>
-
-        <p>That is the loop.</p>
-
-        <p>It is not trying to do payroll, accounting, supplier portals, or every other enterprise function under the sun. It handles the operational layer that spreadsheets are bad at keeping straight and that ERP usually overcomplicates.</p>
-
-        <p>If you are building real things from real materials on a repeatable basis, and you want numbers you can actually trust, that is where BUS Core fits.</p>
-
-        <h2>This is the niche</h2>
-
-        <p>The awkward middle is full of real shops doing real work. Most stay on spreadsheets longer than they should because the alternative looks like ERP. Some go try ERP and find out, expensively, that it was the wrong fit.</p>
-
-        <p>BUS Core exists because that gap is real.</p>
-
-        <p>Not as a workaround. Not as a stripped-down enterprise suite. As a tool built for the actual scale of small manufacturing work.</p>
+        <p>Most software ignores this stage. Spreadsheets assume it does not exist yet. ERP assumes it has already passed. BUS Core exists because it has not.</p>
 
         <p>BUS Core is open source under the AGPL. The current release is on the downloads page. If you want to ask questions or see how other people are using it, the Reddit community is the best place to start.</p>
 
-    </div>
+        <h2>Continue reading</h2>
 
-    <section>
-      <h2>Not sure where you are yet?</h2>
-      <p>If you're still figuring out what's breaking in your shop, use the field guide:</p>
-      <p><a href="/blog/field-guide/">Small Shop Operations Field Guide</a></p>
-    </section>
+        <ul>
+            <li><a href="/blog/field-guide/">Small Shop Operations Field Guide</a></li>
+            <li><a href="/blog/inventory-drift/">Inventory Drift: Why Your Numbers Stop Matching Reality</a></li>
+            <li><a href="/blog/traceability-before-erp/">Traceability Before ERP</a></li>
+            <li><a href="/downloads.html">Download BUS Core</a></li>
+        </ul>
+
+    </div>
 
     <footer class="post-footer">
         <hr>
         <p><a href="/blog/">&larr; Back to Blog</a></p>
         <p>BUS Core is local-first operational software for small manufacturing shops. <a href="/downloads.html">Download the latest release.</a></p>
-        <h2>Related Reading</h2>
-        <div class="capabilities-grid">
-            <article>
-                <h3><a href="/downloads.html">Downloads</a></h3>
-                <p>Get the latest BUS Core release and run it locally.</p>
-                <p><a href="/downloads.html">Go to Downloads</a></p>
-            </article>
-            <article>
-                <h3><a href="/trust.html">Trust</a></h3>
-                <p>Review the local-first model, no telemetry policy, and data ownership approach.</p>
-                <p><a href="/trust.html">Go to Trust</a></p>
-            </article>
-            <article>
-                <h3><a href="/blog/spreadsheets-to-buscore/">When Spreadsheets Stop Working: The Messy Middle of Small Manufacturing</a></h3>
-                <p>An explanation of what breaks first when spreadsheet-based shop workflows stop scaling.</p>
-                <p><a href="/blog/spreadsheets-to-buscore/">Read the article</a></p>
-            </article>
-            <article>
-                <h3><a href="/blog/why-4-overnight-downloads-matter-more-than-400-empty-impressions/">Why 4 Overnight Downloads Matter More Than 400 Empty Impressions</a></h3>
-                <p>A practical note on why real adoption matters more than vanity metrics.</p>
-                <p><a href="/blog/why-4-overnight-downloads-matter-more-than-400-empty-impressions/">Read the article</a></p>
-            </article>
-        </div>
     </footer>
 
 </main>

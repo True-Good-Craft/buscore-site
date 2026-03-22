@@ -232,9 +232,38 @@ The blog is a first-party, static HTML blog hosted at `buscore.ca/blog/`.
 
 **Published posts:**
 
-| Slug | Title | Published |
-|---|---|---|
-| `spreadsheets-to-buscore` | When Spreadsheets Stop Working: The Messy Middle of Small Manufacturing | 2026-03-11 |
+| Slug | Title | Published | Cluster role |
+|---|---|---|---|
+| `the-awkward-middle-between-spreadsheets-and-erp` | The Awkward Middle Between Spreadsheets and ERP | 2026-03-11 | Flagship category article |
+| `spreadsheets-to-buscore` | When Spreadsheets Stop Working: The Messy Middle of Small Manufacturing | 2026-03-11 | Symptom / entry article |
+| `inventory-drift` | Inventory Drift: Why Your Numbers Stop Matching Reality | 2026-03-22 | Deep-dive support article |
+| `traceability-before-erp` | Traceability Before ERP | 2026-03-22 | Deep-dive support article |
+| `field-guide` | Small Shop Operations Field Guide | 2026-03-22 | Hub / router page |
+| `why-4-overnight-downloads-matter-more-than-400-empty-impressions` | Why 4 Overnight Downloads Matter More Than 400 Empty Impressions | 2026-03-13 | Founder / signal article |
+
+**Blog content-cluster architecture:**
+
+The blog operates as a flagship cluster with distinct article roles:
+
+- **Flagship category article** (`the-awkward-middle-between-spreadsheets-and-erp`): Defines the spreadsheet-to-ERP gap as a real operational stage. Strongest article in the cluster. Covers: why spreadsheets stop scaling, what breaks in the messy middle, the trust collapse, why ERP overshoots, what this phase needs, and why this is a real category.
+- **Symptom / entry article** (`spreadsheets-to-buscore`): Entry point for readers experiencing early spreadsheet failures. Covers: what breaks first (inventory, costing, history). Bridges readers forward to the flagship article. Does not duplicate the flagship's gap/ERP analysis.
+- **Deep-dive support articles** (`inventory-drift`, `traceability-before-erp`): Narrowly scoped explorations of specific operational problems. Do not drift into generic "why spreadsheets fail" territory. Each links to the flagship, the field guide, and downloads.
+- **Hub / router page** (`field-guide`): Routes readers to the right article based on their symptom or shop type. Links to all cluster articles, all use-case pages, and downloads. Contains no long-form article content.
+- **Founder / signal article** (`why-4-overnight-downloads-matter-more-than-400-empty-impressions`): Builder/traction perspective piece. Not forced into shop-floor framing. Links into the main cluster via field guide and flagship references.
+
+**Intended reading path:**
+1. Entry article (spreadsheets-to-buscore) → flagship article (the-awkward-middle)
+2. Flagship article → field guide / deep dives → downloads
+3. Field guide acts as a lateral router at any point in the path
+
+**Blog URL inventory:**
+- `/blog/` — index / router
+- `/blog/field-guide/` — hub page
+- `/blog/inventory-drift/` — deep-dive
+- `/blog/spreadsheets-to-buscore/` — symptom entry
+- `/blog/the-awkward-middle-between-spreadsheets-and-erp/` — flagship
+- `/blog/traceability-before-erp/` — deep-dive
+- `/blog/why-4-overnight-downloads-matter-more-than-400-empty-impressions/` — founder signal
 
 **Navigation:** Blog link appears in the main nav of all site pages between Community and Contact.
 

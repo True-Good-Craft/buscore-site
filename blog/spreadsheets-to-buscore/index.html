@@ -102,91 +102,33 @@
         <p><a href="/blog/inventory-drift/">Read: Inventory Drift explained</a></p>
         </section>
 
-        <h2>Why ERP is not the answer</h2>
+        <h2>This does not automatically mean ERP</h2>
 
-        <p>This is usually where somebody says, "Sounds like you need an ERP."</p>
+        <p>When spreadsheets start failing, the usual advice is to go get an ERP. That identifies the right category of problem but overshoots the scale of the solution by a wide margin. Most small shops do not need enterprise software. They need a system that tracks what comes in, what gets consumed, what gets built, and what it cost.</p>
 
-        <p>They are not completely wrong. They have identified the category of problem. They have just overshot the scale of the solution by a country mile.</p>
-
-        <p>Most small shops do not need an enterprise system. They do not need implementation consultants, admin overhead, cloud accounts, training plans, and a software bill that acts like a second utility payment. They need a system that can reliably track what comes in, what gets consumed, what gets built, and what it cost. That is it.</p>
-
-        <p>The usual ERP answer is technically valid and operationally ridiculous.</p>
-
-        <h2>The gap is real</h2>
-
-        <p>There is a real gap between "good luck with your spreadsheet" and "welcome to enterprise software hell." A lot of small manufacturing shops live right there. They are building real products, in real batches, with real material costs, but they do not have the size or appetite for heavyweight software.</p>
-
-        <p>That is the gap BUS Core is built for.</p>
-
-        <p>BUS Core is local-first operational software for small manufacturing work. It runs on your own machine. Data stays local in SQLite. There is no cloud dependency, no monthly fee, and no account circus. You install it, open a browser tab to <code>localhost:8765</code>, and start working.</p>
-
-        <p>The operating loop is simple on purpose:</p>
-
-        <ul>
-            <li>materials go in as inventory</li>
-            <li>Blueprints define what a run consumes and produces</li>
-            <li>Manufacturing Runs record what was actually built</li>
-            <li>stock gets deducted from real usage</li>
-            <li>costs come from actual inputs instead of vibes</li>
-            <li>the Production Ledger keeps the history</li>
-        </ul>
-
-        <p>None of that is glamorous. Good. It should not be. This kind of software should be boring in the right ways. The value is not novelty. The value is that the numbers stay tied to reality run after run.</p>
+        <p>The gap between outgrowing a spreadsheet and actually needing ERP is a real operational stage, not a quick transition. <a href="/blog/the-awkward-middle-between-spreadsheets-and-erp/">The Awkward Middle Between Spreadsheets and ERP</a> covers that gap in detail.</p>
 
         <h2>A practical threshold</h2>
 
         <p>If you are regularly finding stock mismatches, second-guessing your pricing, or realizing you cannot cleanly explain what your last production run cost, that is the point where the spreadsheet has stopped scaling with the operation.</p>
 
-        <p>You do not need a giant system. You need a smaller one that is actually built for the job.</p>
+        <p>You do not need a giant system. You need a smaller one that is actually built for the job. The answer does not have to be enterprise software.</p>
 
-        <p>BUS Core is open source under the AGPL. The current release is on the downloads page. If you want to follow along, ask questions, or poke holes in it, the Reddit community and Discord are there.</p>
+        <h2>Continue reading</h2>
 
-        <p>The messy middle is real. Spreadsheet pain is real. The answer does not have to be enterprise software.</p>
+        <ul>
+            <li><a href="/blog/the-awkward-middle-between-spreadsheets-and-erp/">The Awkward Middle Between Spreadsheets and ERP</a></li>
+            <li><a href="/blog/inventory-drift/">Inventory Drift: Why Your Numbers Stop Matching Reality</a></li>
+            <li><a href="/blog/field-guide/">Small Shop Operations Field Guide</a></li>
+            <li><a href="/downloads.html">Download BUS Core</a></li>
+        </ul>
 
     </div>
-
-    <section>
-    <h2>Where this leads</h2>
-    <ul>
-    <li><a href="/blog/the-awkward-middle-between-spreadsheets-and-erp/">The Spreadsheet to ERP Gap</a></li>
-    <li><a href="/blog/traceability-before-erp/">Traceability Before ERP</a></li>
-    <li><a href="/blog/field-guide/">Full Field Guide</a></li>
-    </ul>
-    </section>
-
-    <section>
-      <h2>Not sure where you are yet?</h2>
-      <p>If you're still figuring out what's breaking in your shop, use the field guide:</p>
-      <p><a href="/blog/field-guide/">Small Shop Operations Field Guide</a></p>
-    </section>
 
     <footer class="post-footer">
         <hr>
         <p><a href="/blog/">&larr; Back to Blog</a></p>
         <p>BUS Core is local-first operational software for small manufacturing shops. <a href="/downloads.html">Download the latest release.</a></p>
-        <h2>Related Reading</h2>
-        <div class="capabilities-grid">
-            <article>
-                <h3><a href="/downloads.html">Downloads</a></h3>
-                <p>Get the latest BUS Core release and run it locally.</p>
-                <p><a href="/downloads.html">Go to Downloads</a></p>
-            </article>
-            <article>
-                <h3><a href="/trust.html">Trust</a></h3>
-                <p>Review the local-first model, no telemetry policy, and data ownership approach.</p>
-                <p><a href="/trust.html">Go to Trust</a></p>
-            </article>
-            <article>
-                <h3><a href="/blog/the-awkward-middle-between-spreadsheets-and-erp/">The Awkward Middle Between Spreadsheets and ERP</a></h3>
-                <p>A look at the gap between fragile spreadsheets and oversized ERP systems.</p>
-                <p><a href="/blog/the-awkward-middle-between-spreadsheets-and-erp/">Read the article</a></p>
-            </article>
-            <article>
-                <h3><a href="/blog/why-4-overnight-downloads-matter-more-than-400-empty-impressions/">Why 4 Overnight Downloads Matter More Than 400 Empty Impressions</a></h3>
-                <p>A practical note on why real adoption matters more than vanity metrics.</p>
-                <p><a href="/blog/why-4-overnight-downloads-matter-more-than-400-empty-impressions/">Read the article</a></p>
-            </article>
-        </div>
     </footer>
 
 </main>

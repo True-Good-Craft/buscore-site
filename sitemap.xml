@@ -44,7 +44,7 @@
   </url>
   <url>
     <loc>https://buscore.ca/blog/</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -56,15 +56,15 @@
   </url>
   <url>
     <loc>https://buscore.ca/blog/spreadsheets-to-buscore/</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-03-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://buscore.ca/blog/the-awkward-middle-between-spreadsheets-and-erp/</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-03-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://buscore.ca/blog/field-guide/</loc>
@@ -76,7 +76,13 @@
     <loc>https://buscore.ca/blog/inventory-drift/</loc>
     <lastmod>2026-03-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://buscore.ca/blog/traceability-before-erp/</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://buscore.ca/use-cases/laser-engraving-shop/</loc>
