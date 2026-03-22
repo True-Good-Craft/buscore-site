@@ -2,31 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://buscore.ca/</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://buscore.ca/downloads.html</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://buscore.ca/changelog.html</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://buscore.ca/trust.html</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://buscore.ca/contact.html</loc>
-    <lastmod>2026-03-05</lastmod>
+    <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -44,26 +44,44 @@
   </url>
   <url>
     <loc>https://buscore.ca/blog/</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://buscore.ca/blog/why-4-overnight-downloads-matter-more-than-400-empty-impressions/</loc>
-    <lastmod>2026-03-13</lastmod>
-    <changefreq>never</changefreq>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://buscore.ca/blog/spreadsheets-to-buscore/</loc>
-    <lastmod>2026-03-11</lastmod>
-    <changefreq>never</changefreq>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://buscore.ca/blog/the-awkward-middle-between-spreadsheets-and-erp/</loc>
-    <lastmod>2026-03-11</lastmod>
-    <changefreq>never</changefreq>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://buscore.ca/use-cases/laser-engraving-shop/</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://buscore.ca/use-cases/3d-print-farm/</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://buscore.ca/use-cases/small-batch-manufacturing/</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 </urlset>
