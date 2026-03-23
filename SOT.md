@@ -77,6 +77,7 @@ Role of major files/folders:
 | `privacy.html` | Privacy policy | Footer-linked legal page | Reddit in nav |
 | `license.html` | Licensing terms (AGPL + commercial) | Footer-linked legal page | AGPL URL, Reddit in nav |
 | `404.html` | Not-found handling with return-home link | Directly visited on missing route | Reddit in nav |
+| `what-is-bus-core/index.html` | Positioning / definition page: defines what BUS Core is, the problem space, and where it fits relative to spreadsheets and ERP | Not in primary nav; linked from homepage philosophy section | None |
 
 Navigation pattern observed:
 
