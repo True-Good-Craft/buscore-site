@@ -21,26 +21,31 @@
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Why 4 Overnight Downloads Matter More Than 400 Empty Impressions">
-    <meta name="twitter:description" content="Quiet traction matters more than vanity metrics when you are building infrastructure software for small shops. A real download is trust, not applause.">
-    <meta name="twitter:image" content="https://buscore.ca/assets/images/og-default.png">
+        <meta name="twitter:description" content="Quiet traction matters more than vanity metrics when you are building infrastructure software for small shops. A real download is trust, not applause.">
+        <meta name="twitter:image" content="https://buscore.ca/assets/images/og-default.png">
 
-    <link rel="apple-touch-icon" href="/assets/Logo.png">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/style.css">
+        <link rel="apple-touch-icon" href="/assets/Logo.png">
+        <link rel="icon" href="/favicon.ico">
+        <link rel="stylesheet" href="/style.css">
+        <!-- Cloudflare Web Analytics (gated) -->
+        <script>
+        (function () {
+            const hasDevCookie = document.cookie
+                .split('; ')
+                .some(c => c.startsWith('dev_mode='));
+
+            if (hasDevCookie) return;
+
+            const s = document.createElement('script');
+            s.defer = true;
+            s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+            s.setAttribute('data-cf-beacon', '{"token": "22e6e7aa34d34328bd7219de69f5439c"}');
+
+            document.head.appendChild(s);
+        })();
+        </script>
 </head>
 <body>
-
-<!-- Cloudflare Web Analytics -->
-<script>
-  if (localStorage.getItem("noAnalytics") !== "1") {
-    const s = document.createElement("script");
-    s.defer = true;
-    s.src = "https://static.cloudflareinsights.com/beacon.min.js";
-    s.setAttribute("data-cf-beacon", '{"token": "22e6e7aa34d34328bd7219de69f5439c"}');
-    document.head.appendChild(s);
-  }
-</script>
-<!-- End Cloudflare Web Analytics -->
 
 <header>
     <nav class="top-nav">

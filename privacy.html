@@ -5,23 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BUS Core | Privacy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" href="/assets/Logo.png">
-    <meta name="description" content="Privacy policy for BUS Core, the digital shop jig for manufacturing workflows.">
-    <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="style.css">
+        <link rel="apple-touch-icon" href="/assets/Logo.png">
+        <meta name="description" content="Privacy policy for BUS Core, the digital shop jig for manufacturing workflows.">
+        <link rel="icon" href="favicon.ico">
+        <link rel="stylesheet" href="style.css">
+        <!-- Cloudflare Web Analytics (gated) -->
+        <script>
+        (function () {
+            const hasDevCookie = document.cookie
+                .split('; ')
+                .some(c => c.startsWith('dev_mode='));
+
+            if (hasDevCookie) return;
+
+            const s = document.createElement('script');
+            s.defer = true;
+            s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+            s.setAttribute('data-cf-beacon', '{"token": "22e6e7aa34d34328bd7219de69f5439c"}');
+
+            document.head.appendChild(s);
+        })();
+        </script>
 </head>
 <body>
-<!-- Cloudflare Web Analytics -->
-<script>
-  if (localStorage.getItem("noAnalytics") !== "1") {
-    const s = document.createElement("script");
-    s.defer = true;
-    s.src = "https://static.cloudflareinsights.com/beacon.min.js";
-    s.setAttribute("data-cf-beacon", '{"token": "22e6e7aa34d34328bd7219de69f5439c"}');
-    document.head.appendChild(s);
-  }
-</script>
-<!-- End Cloudflare Web Analytics -->
 <header>
     <nav class="top-nav">
         <a href="/">Home</a>

@@ -17,21 +17,27 @@
     <meta name="twitter:title" content="BUS Core | Downloads">
     <meta name="twitter:description" content="Download BUS Core, the digital shop jig for manufacturing workflows. Local-first releases for small manufacturing shops.">
     <meta name="twitter:image" content="https://buscore.ca/assets/images/og-default.png">
-    <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="favicon.ico">
+        <link rel="stylesheet" href="style.css">
+        <!-- Cloudflare Web Analytics (gated) -->
+        <script>
+        (function () {
+            const hasDevCookie = document.cookie
+                .split('; ')
+                .some(c => c.startsWith('dev_mode='));
+
+            if (hasDevCookie) return;
+
+            const s = document.createElement('script');
+            s.defer = true;
+            s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+            s.setAttribute('data-cf-beacon', '{"token": "22e6e7aa34d34328bd7219de69f5439c"}');
+
+            document.head.appendChild(s);
+        })();
+        </script>
 </head>
 <body>
-<!-- Cloudflare Web Analytics -->
-<script>
-  if (localStorage.getItem("noAnalytics") !== "1") {
-    const s = document.createElement("script");
-    s.defer = true;
-    s.src = "https://static.cloudflareinsights.com/beacon.min.js";
-    s.setAttribute("data-cf-beacon", '{"token": "22e6e7aa34d34328bd7219de69f5439c"}');
-    document.head.appendChild(s);
-  }
-</script>
-<!-- End Cloudflare Web Analytics -->
 <header>
     <nav class="top-nav">
         <a href="/" class="brand" aria-label="BUS Core home">

@@ -15,26 +15,31 @@
     <meta property="og:image" content="https://buscore.ca/assets/images/og-default.png">
     <meta property="og:site_name" content="BUS Core">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="What is BUS Core | Small Manufacturing Operations System">
-    <meta name="twitter:description" content="BUS Core is a local-first system designed for small manufacturing shops that have outgrown spreadsheets but do not need full ERP systems.">
-    <meta name="twitter:image" content="https://buscore.ca/assets/images/og-default.png">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/style.css">
+        <meta name="twitter:title" content="What is BUS Core | Small Manufacturing Operations System">
+        <meta name="twitter:description" content="BUS Core is a local-first system designed for small manufacturing shops that have outgrown spreadsheets but do not need full ERP systems.">
+        <meta name="twitter:image" content="https://buscore.ca/assets/images/og-default.png">
+        <link rel="icon" href="/favicon.ico">
+        <link rel="stylesheet" href="/style.css">
+        <!-- Cloudflare Web Analytics (gated) -->
+        <script>
+        (function () {
+            const hasDevCookie = document.cookie
+                .split('; ')
+                .some(c => c.startsWith('dev_mode='));
+
+            if (hasDevCookie) return;
+
+            const s = document.createElement('script');
+            s.defer = true;
+            s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+            s.setAttribute('data-cf-beacon', '{"token": "22e6e7aa34d34328bd7219de69f5439c"}');
+
+            document.head.appendChild(s);
+        })();
+        </script>
 </head>
 
 <body>
-
-<!-- Cloudflare Web Analytics -->
-<script>
-  if (localStorage.getItem("noAnalytics") !== "1") {
-    const s = document.createElement("script");
-    s.defer = true;
-    s.src = "https://static.cloudflareinsights.com/beacon.min.js";
-    s.setAttribute("data-cf-beacon", '{"token": "22e6e7aa34d34328bd7219de69f5439c"}');
-    document.head.appendChild(s);
-  }
-</script>
-<!-- End Cloudflare Web Analytics -->
 
 <header>
     <nav class="top-nav">
