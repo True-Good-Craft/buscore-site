@@ -59,7 +59,8 @@ Observed behavior in global loader:
 - If cookie dev_mode is present, loader exits immediately.
 - If not gated:
   - Cloudflare beacon script is injected (https://static.cloudflareinsights.com/beacon.min.js) with configured token.
-  - One page-load pageview event is emitted to POST /metrics/pageview.
+  - One page-load pageview event is emitted to POST https://lighthouse.buscore.ca/metrics/pageview.
+  - This is a cross-origin POST from buscore.ca to Lighthouse (not same-origin telemetry posting to buscore.ca).
 
 No unload analytics:
 - No unload/beforeunload handler binding is present in site telemetry code.
@@ -160,4 +161,5 @@ Deployment/config context:
 
 - Verify: production deployment routing still serves all modified static pages from this repository state without stale cached HTML.
 - Verify: /priceguard path routing/casing behavior in deployment remains unchanged after site-shell telemetry rollout.
-- Verify: endpoint /metrics/pageview availability and behavior in Lighthouse (outside this repo).
+- Manual validation confirms POST https://lighthouse.buscore.ca/metrics/pageview returns 204 for valid requests.
+- Site responsibility ends at emission; Lighthouse owns ingestion, storage, aggregation, and report shaping.

@@ -13,7 +13,9 @@ Cloudflare analytics mechanism:
 
 First-party Lighthouse pageview emitter:
 - Implemented in same global loader.
-- Endpoint: POST /metrics/pageview.
+- Endpoint: POST https://lighthouse.buscore.ca/metrics/pageview.
+- Posting model: cross-origin POST from buscore.ca to Lighthouse.
+- The site does not post first-party telemetry to buscore.ca.
 - Emission model: page-load fire-and-forget.
 
 ## 2) When Emission Happens
@@ -131,9 +133,13 @@ Static pages updated to include shared loader:
 
 ## 10) Expected Lighthouse Follow-on (Not Implemented in Site)
 
-- Endpoint availability and contract hardening for /metrics/pageview.
+- Endpoint availability and contract hardening for https://lighthouse.buscore.ca/metrics/pageview.
 - Server-side timestamp assignment (received_at).
 - Validation/sanitization and schema enforcement.
 - Storage and retention policy.
 - Aggregation/reporting outputs (paths, referrers, sources, trends).
 - Rate limiting / abuse handling.
+
+Manual validation status:
+- Valid POST requests to https://lighthouse.buscore.ca/metrics/pageview return 204.
+- Site responsibility ends at emission; Lighthouse owns ingestion, storage, aggregation, and report shaping.

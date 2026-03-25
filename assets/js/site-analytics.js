@@ -2,7 +2,7 @@
     'use strict';
 
     var CLOUDFLARE_TOKEN = '22e6e7aa34d34328bd7219de69f5439c';
-    var PAGEVIEW_ENDPOINT = '/metrics/pageview';
+    var PAGEVIEW_ENDPOINT = 'https://lighthouse.buscore.ca/metrics/pageview';
     var DEDUPE_WINDOW_MS = 3000;
 
     function hasDevModeCookie() {

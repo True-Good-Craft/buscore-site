@@ -10,7 +10,8 @@ Type: Minimal telemetry addition on static site shell
 - Replaced duplicated per-page inline Cloudflare analytics bootstraps with a shared deferred script include:
   - <script src="/assets/js/site-analytics.js" defer></script>
 - Added first-party pageview emission to Lighthouse endpoint:
-  - POST /metrics/pageview
+  - POST https://lighthouse.buscore.ca/metrics/pageview
+  - Cross-origin from buscore.ca to Lighthouse (not posted to buscore.ca)
 - Added dev_mode suppression and sessionStorage dedupe in shared loader.
 
 ## 2) Why It Changed
@@ -59,3 +60,10 @@ Replaced with:
 - Unload-triggered analytics events.
 - Server-side ingestion/storage/reporting implementation.
 - Dashboard/report generation from collected pageviews.
+
+## 6) Endpoint Target Correction Note
+
+- Initial site-side implementation targeted /metrics/pageview on buscore.ca.
+- That incorrect target produced client-side 404 responses on buscore.ca.
+- The correct endpoint https://lighthouse.buscore.ca/metrics/pageview was manually validated (204 for valid POST) and adopted.
+- No client contract redesign was required; this was a target correction only.

@@ -6,7 +6,8 @@ Boundary: This note separates site responsibilities from Lighthouse responsibili
 ## 1) Site Responsibility (Now Implemented)
 
 Implemented on site:
-- Emit one page-load pageview event to POST /metrics/pageview.
+- Emit one page-load pageview event to POST https://lighthouse.buscore.ca/metrics/pageview.
+- Emit as cross-origin POST from buscore.ca to Lighthouse (not to buscore.ca).
 - Suppress analytics when dev_mode cookie is present.
 - Use sessionStorage dedupe for same-path events within 3 seconds.
 - Use beacon-first transport with keepalive fetch fallback.
@@ -22,7 +23,7 @@ Not implemented on site (by design):
 ## 2) Lighthouse Responsibility (Pending / Next)
 
 Required backend endpoint:
-- Implement and operate POST /metrics/pageview.
+- Implement and operate POST https://lighthouse.buscore.ca/metrics/pageview.
 
 Recommended ingestion responsibilities:
 - Validate request JSON and accepted fields.
@@ -62,7 +63,11 @@ Server-enriched fields recommended:
 
 ## 4) Verify Flags for Handoff
 
-- Verify: final Lighthouse accepted schema for /metrics/pageview.
+- Verify: final Lighthouse accepted schema for https://lighthouse.buscore.ca/metrics/pageview.
 - Verify: retention policy and compliance requirements for telemetry storage.
 - Verify: reporting dimensions required by stakeholders before schema lock.
 - Verify: whether Cloudflare analytics and first-party telemetry should be reconciled in a single reporting surface.
+
+Manual validation status:
+- Valid POST requests to https://lighthouse.buscore.ca/metrics/pageview return 204.
+- Site responsibility ends at emission; Lighthouse owns ingestion, storage, aggregation, and report shaping.
