@@ -142,13 +142,19 @@ Conclusion for this section:
 
 Website analytics evidence:
 
-- Cloudflare Web Analytics beacon script appears on all inspected HTML pages (`index.html`, `downloads.html`, `changelog.html`, `trust.html`, `contact.html`, `privacy.html`, `license.html`, `404.html`).
-- Script source: `https://static.cloudflareinsights.com/beacon.min.js`.
-- A Cloudflare beacon token is provided via `data-cf-beacon`.
+- All served HTML pages load a shared analytics loader include: `<script src="/assets/js/site-analytics.js" defer></script>`.
+- Cloudflare beacon script is injected by the shared loader using source `https://static.cloudflareinsights.com/beacon.min.js` and configured token.
+- Inline per-page Cloudflare analytics blocks are removed from served pages.
 
 Repository-visible tracking detail:
 
-- Exact collected fields are not explicitly defined in repository JavaScript code (script is loaded remotely).
+- Lighthouse payload fields are explicitly defined in `.deploy/assets/js/site-analytics.js`.
+- Payload includes pageview fields plus anonymous continuity fields: `anon_user_id`, `session_id`, `is_new_user`.
+- Continuity state is site-side only:
+  - `bc_uid` first-party cookie (UUIDv4, 365 days, Path=/, SameSite=Lax, Secure)
+  - `bc_sid` and `bc_last_activity_at` in sessionStorage
+  - Session rollover at 30 minutes inactivity
+- Kill-switch behavior for `localStorage.noAnalytics === "1"` clears `bc_uid` and analytics session keys and suppresses Cloudflare + Lighthouse emission.
 - `privacy.html` states website collects limited aggregate metrics including page views and download counts.
 
 Application telemetry distinction in content:
@@ -179,7 +185,9 @@ External services/domains directly used by the site:
 | Previous downloads are hardcoded | `downloads.html` | Multiple static versioned R2 links + static SHA256 blocks |
 | Latest release notes link is external | `manifest/core/stable.json` | Current URL points to GitHub release tag |
 | Changelog is published on-site as static content | `changelog.html` | Separate from manifest-driven latest release notes link |
-| Website analytics script is embedded page-wide | `index.html` (and peers) | Cloudflare beacon loaded on all inspected pages |
+| Website analytics uses one shared loader page-wide | `.deploy/assets/js/site-analytics.js` | Shared include on served pages; loader handles Cloudflare + Lighthouse |
+| Anonymous continuity is implemented in loader | `.deploy/assets/js/site-analytics.js` | `bc_uid` cookie + `bc_sid` sessionStorage + `is_new_user` payload field |
+| Privacy controls are bound by data attributes | `.deploy/privacy.html` | `data-analytics-optout`, `data-analytics-optin`, `data-analytics-status` |
 | Crawl metadata is explicitly declared | `robots.txt`, `sitemap.xml` | Sitemap URL points to `https://buscore.ca/sitemap.xml` |
 | 404 handling uses custom static page | `404.html` | Includes standard nav and return-home link |
 | Active stylesheet for pages is root CSS | `style.css` | Linked by all inspected HTML pages |
@@ -192,10 +200,9 @@ Objective drifts/ambiguities based on repository evidence:
   - `manifest/core/stable.json` latest version is `1.0.0`.
   - `downloads.html` hardcoded previous versions top out at `v0.10.6.0`.
   - `changelog.html` includes `v0.11.0` entry and no `1.0.0` section.
-- Telemetry messaging vs implementation surface:
-  - `trust.html` says "No background analytics. No usage tracking."
-  - Site pages include Cloudflare Web Analytics beacon script.
-  - `privacy.html` partially reconciles this by distinguishing app privacy from website analytics.
+- Telemetry wording and implementation are now aligned in served pages:
+  - Trust text distinguishes app telemetry from website analytics.
+  - Privacy text discloses anonymous return-visit/session measurement and provides opt-out/opt-in controls.
 - `site.webmanifest` exists but no `<link rel="manifest" ...>` was found in HTML pages.
 - `assets/css/style.css` exists but current pages link root `style.css` only.
 - `downloads/` directory exists but is empty; download delivery is external (R2 URLs and manifest URL values).

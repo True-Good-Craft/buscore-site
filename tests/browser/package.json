@@ -1,0 +1,11 @@
+{
+  "name": "buscore-site-browser-tests",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:deploy-analytics": "node deploy-analytics.test.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.58.2"
+  }
+}

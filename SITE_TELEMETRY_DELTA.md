@@ -1,18 +1,31 @@
 # Site Telemetry Delta / Change Summary
 
-Date: 2026-03-25
-Type: Minimal telemetry addition on static site shell
+Date: 2026-03-26
+Type: Telemetry unification plus anonymous continuity on deployed static shell
 
 ## 1) What Changed
 
-- Added one shared site analytics loader:
-  - assets/js/site-analytics.js
-- Replaced duplicated per-page inline Cloudflare analytics bootstraps with a shared deferred script include:
+- Added one shared site analytics loader in deployed shell:
+  - .deploy/assets/js/site-analytics.js
+- Replaced duplicated per-page inline Cloudflare analytics bootstraps with a shared deferred script include on served pages:
   - <script src="/assets/js/site-analytics.js" defer></script>
 - Added first-party pageview emission to Lighthouse endpoint:
   - POST https://lighthouse.buscore.ca/metrics/pageview
   - Cross-origin from buscore.ca to Lighthouse (not posted to buscore.ca)
-- Added dev_mode suppression and sessionStorage dedupe in shared loader.
+- Added anonymous continuity fields and state:
+  - bc_uid cookie (UUIDv4, 365d)
+  - bc_sid session id in sessionStorage
+  - bc_last_activity_at timestamp in sessionStorage
+  - 30-minute session rollover
+  - payload fields: anon_user_id, session_id, is_new_user
+- Strengthened noAnalytics kill-switch behavior:
+  - suppress Cloudflare and Lighthouse
+  - delete bc_uid
+  - clear bc_sid, bc_last_activity_at, last_path, last_fired_at
+- Added privacy page controls via data attributes:
+  - data-analytics-optout, data-analytics-optin, data-analytics-status
+- Added automated headless browser validation:
+  - tests/browser/deploy-analytics.test.mjs
 
 ## 2) Why It Changed
 
@@ -20,30 +33,26 @@ Type: Minimal telemetry addition on static site shell
 - Keep telemetry first-party, minimal, and explicit.
 - Preserve non-blocking page behavior and avoid heavy analytics frameworks.
 - Align website telemetry with Lighthouse ingestion path while keeping privacy-safe scope.
+- Distinguish first-time and returning anonymous visitors plus browser sessions without introducing consent-banner/fingerprinting scope.
 
 ## 3) Files Touched by Telemetry Implementation
 
-- assets/js/site-analytics.js
-- 404.html
-- blog/_post-template.html
-- blog/field-guide/index.html
-- blog/index.html
-- blog/inventory-drift/index.html
-- blog/spreadsheets-to-buscore/index.html
-- blog/the-awkward-middle-between-spreadsheets-and-erp/index.html
-- blog/traceability-before-erp/index.html
-- blog/why-4-overnight-downloads-matter-more-than-400-empty-impressions/index.html
-- changelog.html
-- contact.html
-- downloads.html
-- index.html
-- license.html
-- privacy.html
-- trust.html
-- use-cases/3d-print-farm/index.html
-- use-cases/laser-engraving-shop/index.html
-- use-cases/small-batch-manufacturing/index.html
-- what-is-bus-core/index.html
+- .deploy/assets/js/site-analytics.js
+- .deploy/index.html
+- .deploy/downloads.html
+- .deploy/changelog.html
+- .deploy/trust.html
+- .deploy/privacy.html
+- .deploy/contact.html
+- .deploy/license.html
+- .deploy/404.html
+- .deploy/blog/index.html
+- .deploy/blog/_post-template.html
+- .deploy/blog/spreadsheets-to-buscore/index.html
+- .deploy/blog/the-awkward-middle-between-spreadsheets-and-erp/index.html
+- .deploy/priceguard/index.html
+- tests/browser/deploy-analytics.test.mjs
+- tests/browser/package.json
 
 ## 4) Old Behavior Removed or Replaced
 
@@ -51,19 +60,17 @@ Removed/replaced:
 - Inline Cloudflare analytics bootstrap blocks embedded separately in each static page head.
 
 Replaced with:
-- Shared loader include calling centralized logic in assets/js/site-analytics.js.
+- Shared loader include calling centralized logic in .deploy/assets/js/site-analytics.js.
 
 ## 5) Intentionally Deferred (Not Part of Site Change)
 
 - Any telemetry retries/queueing strategy.
-- Session/user identity tracking.
 - Unload-triggered analytics events.
 - Server-side ingestion/storage/reporting implementation.
 - Dashboard/report generation from collected pageviews.
+- Consent banner platforms or fingerprinting logic.
 
 ## 6) Endpoint Target Correction Note
 
-- Initial site-side implementation targeted /metrics/pageview on buscore.ca.
-- That incorrect target produced client-side 404 responses on buscore.ca.
-- The correct endpoint https://lighthouse.buscore.ca/metrics/pageview was manually validated (204 for valid POST) and adopted.
-- No client contract redesign was required; this was a target correction only.
+- Endpoint remains https://lighthouse.buscore.ca/metrics/pageview.
+- Browser suite captures and validates outbound request shape against this endpoint.
