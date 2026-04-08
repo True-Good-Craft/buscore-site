@@ -9,8 +9,9 @@ Type: Telemetry unification plus anonymous continuity on deployed static shell
   - .deploy/assets/js/site-analytics.js
 - Replaced duplicated per-page inline Cloudflare analytics bootstraps with a shared deferred script include on served pages:
   - <script src="/assets/js/site-analytics.js" defer></script>
-- Added first-party pageview emission to Lighthouse endpoint:
-  - POST https://lighthouse.buscore.ca/metrics/pageview
+- Added first-party shared event emission to Lighthouse endpoint:
+  - POST https://lighthouse.buscore.ca/metrics/event
+  - Shared event emitted as type=page_view with site_key=buscore
   - Cross-origin from buscore.ca to Lighthouse (not posted to buscore.ca)
 - Added anonymous continuity fields and state:
   - bc_uid cookie (UUIDv4, 365d)
@@ -67,10 +68,10 @@ Replaced with:
 - Any telemetry retries/queueing strategy.
 - Unload-triggered analytics events.
 - Server-side ingestion/storage/reporting implementation.
-- Dashboard/report generation from collected pageviews.
+- Dashboard/report generation from collected events.
 - Consent banner platforms or fingerprinting logic.
 
 ## 6) Endpoint Target Correction Note
 
-- Endpoint remains https://lighthouse.buscore.ca/metrics/pageview.
+- Endpoint remains https://lighthouse.buscore.ca/metrics/event.
 - Browser suite captures and validates outbound request shape against this endpoint.

@@ -11,9 +11,9 @@ Cloudflare analytics mechanism:
   - src: https://static.cloudflareinsights.com/beacon.min.js
   - data-cf-beacon token is set in code.
 
-First-party Lighthouse pageview emitter:
+First-party Lighthouse event emitter:
 - Implemented in same global loader.
-- Endpoint: POST https://lighthouse.buscore.ca/metrics/pageview.
+- Endpoint: POST https://lighthouse.buscore.ca/metrics/event.
 - Posting model: cross-origin POST from buscore.ca to Lighthouse.
 - The site does not post first-party telemetry to buscore.ca.
 - Emission model: page-load fire-and-forget.
@@ -40,7 +40,7 @@ Suppression rule 1:
 - If localStorage.noAnalytics === "1", suppress all analytics work.
 - This suppresses both:
   - Cloudflare script injection
-  - Lighthouse pageview emission
+  - Lighthouse first-party event emission
 - It also clears analytics identity state:
   - delete bc_uid cookie
   - remove sessionStorage keys bc_sid, bc_last_activity_at, last_path, last_fired_at
@@ -49,10 +49,10 @@ Suppression rule 2:
 - If cookie dev_mode=... exists, suppress all analytics work.
 - This suppresses both:
   - Cloudflare script injection
-  - Lighthouse pageview emission
+  - Lighthouse first-party event emission
 
 Suppression rule 3 (dedupe):
-- If same path already fired within 3000 ms in current tab session, suppress second pageview.
+- If same path already fired within 3000 ms in current tab session, suppress second event send.
 
 ## 4) Dedupe Rule
 
@@ -84,7 +84,8 @@ UTM parsing:
 ## 6) Emitted Payload Fields
 
 Fields currently emitted:
-- type: pageview
+- site_key: buscore
+- type: page_view
 - client_ts: ISO string from new Date().toISOString()
 - path: window.location.pathname
 - url: window.location.href
@@ -154,7 +155,7 @@ Automated browser validation:
 
 ## 10) Expected Lighthouse Follow-on (Not Implemented in Site)
 
-- Endpoint availability and contract hardening for https://lighthouse.buscore.ca/metrics/pageview.
+- Endpoint availability and contract hardening for https://lighthouse.buscore.ca/metrics/event.
 - Server-side timestamp assignment (received_at).
 - Validation/sanitization and schema enforcement.
 - Storage and retention policy.

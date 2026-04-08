@@ -149,7 +149,7 @@ Website analytics evidence:
 Repository-visible tracking detail:
 
 - Lighthouse payload fields are explicitly defined in `.deploy/assets/js/site-analytics.js`.
-- Payload includes pageview fields plus anonymous continuity fields: `anon_user_id`, `session_id`, `is_new_user`.
+- Payload includes shared event fields (`type=page_view`, `site_key=buscore`) plus anonymous continuity fields: `anon_user_id`, `session_id`, `is_new_user`.
 - Continuity state is site-side only:
   - `bc_uid` first-party cookie (UUIDv4, 365 days, Path=/, SameSite=Lax, Secure)
   - `bc_sid` and `bc_last_activity_at` in sessionStorage

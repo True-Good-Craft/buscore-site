@@ -2,7 +2,8 @@
     'use strict';
 
     var CLOUDFLARE_TOKEN = '22e6e7aa34d34328bd7219de69f5439c';
-    var PAGEVIEW_ENDPOINT = 'https://lighthouse.buscore.ca/metrics/pageview';
+    var EVENT_ENDPOINT = 'https://lighthouse.buscore.ca/metrics/event';
+    var SITE_KEY = 'buscore';
     var DEDUPE_WINDOW_MS = 3000;
     var SESSION_TIMEOUT_MS = 30 * 60 * 1000;
     var ANON_COOKIE_NAME = 'bc_uid';
@@ -209,7 +210,7 @@
         return 'desktop';
     }
 
-    function shouldSuppressPageview(pathname, nowMs) {
+    function shouldSuppressEvent(pathname, nowMs) {
         try {
             var lastPath = sessionStorage.getItem('last_path');
             var lastFiredAt = Number(sessionStorage.getItem('last_fired_at') || '0');
@@ -241,7 +242,8 @@
         if (content) utm.content = content;
 
         var payload = {
-            type: 'pageview',
+            site_key: SITE_KEY,
+            type: 'page_view',
             client_ts: nowIso,
             path: window.location.pathname,
             url: window.location.href,
@@ -270,13 +272,13 @@
         return payload;
     }
 
-    function emitPageview(payload) {
+    function emitEvent(payload) {
         var body = JSON.stringify(payload);
 
         if (navigator.sendBeacon) {
             try {
                 var blob = new Blob([body], { type: 'application/json' });
-                var queued = navigator.sendBeacon(PAGEVIEW_ENDPOINT, blob);
+                var queued = navigator.sendBeacon(EVENT_ENDPOINT, blob);
                 if (queued) {
                     return;
                 }
@@ -287,7 +289,7 @@
 
         if (window.fetch) {
             try {
-                fetch(PAGEVIEW_ENDPOINT, {
+                fetch(EVENT_ENDPOINT, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -324,9 +326,9 @@
     loadCloudflareAnalytics();
 
     var nowMs = Date.now();
-    if (shouldSuppressPageview(window.location.pathname, nowMs)) {
+    if (shouldSuppressEvent(window.location.pathname, nowMs)) {
         return;
     }
 
-    emitPageview(buildPayload(anonState, sessionState));
+    emitEvent(buildPayload(anonState, sessionState));
 })();

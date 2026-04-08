@@ -49,7 +49,7 @@ Global analytics loader:
   - localStorage noAnalytics kill-switch gating and identity cleanup
   - anonymous continuity identity lifecycle
   - Cloudflare Web Analytics bootstrap
-  - Lighthouse pageview emission
+  - Lighthouse first-party event emission
   - privacy-page analytics control binding via data attributes
 
 Page-specific scripts still exist:
@@ -72,7 +72,8 @@ Observed behavior in global loader:
     - bc_last_activity_at sessionStorage key
     - Session rollover threshold: 30 minutes inactivity
   - Cloudflare beacon script is injected (https://static.cloudflareinsights.com/beacon.min.js) with configured token.
-  - One page-load pageview event is emitted to POST https://lighthouse.buscore.ca/metrics/pageview.
+  - One page-load shared event is emitted to POST https://lighthouse.buscore.ca/metrics/event.
+  - Shared event name is canonical: type = page_view with site_key = buscore.
   - This is a cross-origin POST from buscore.ca to Lighthouse (not same-origin telemetry posting to buscore.ca).
 
 No unload analytics:
@@ -86,22 +87,23 @@ Rule (verified in code):
 
 Effect:
 - Cloudflare analytics is not loaded.
-- Lighthouse pageview is not emitted.
+- Lighthouse first-party event is not emitted.
 
 Additional kill-switch behavior:
 - If localStorage.noAnalytics is "1":
   - bc_uid cookie is deleted.
   - sessionStorage keys bc_sid, bc_last_activity_at, last_path, last_fired_at are removed.
   - Cloudflare is not loaded.
-  - Lighthouse pageview is not emitted.
+  - Lighthouse first-party event is not emitted.
 
 ## 7) Site Telemetry Behavior Snapshot
 
 Event type:
-- pageview only.
+- shared page_view only.
 
 Payload fields emitted by site:
-- type = pageview
+- site_key = buscore
+- type = page_view
 - client_ts (ISO timestamp)
 - path (window.location.pathname)
 - url (window.location.href)
@@ -146,7 +148,7 @@ Automated validation evidence:
 
 ## 9) Explicitly Not Implemented (As of This Freeze)
 
-- No click/event analytics beyond page-load pageview.
+- No click/event analytics beyond page-load shared page_view.
 - No retry queue or backoff logic for failed telemetry.
 - No client-side aggregation dashboard/reporting.
 - No explicit consent/banner mechanism in code.

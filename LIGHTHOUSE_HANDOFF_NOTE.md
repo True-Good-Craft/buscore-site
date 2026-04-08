@@ -6,7 +6,9 @@ Boundary: This note separates site responsibilities from Lighthouse responsibili
 ## 1) Site Responsibility (Now Implemented)
 
 Implemented on site:
-- Emit one page-load pageview event to POST https://lighthouse.buscore.ca/metrics/pageview.
+- Emit one page-load shared event to POST https://lighthouse.buscore.ca/metrics/event.
+- Emit canonical shared event type: page_view.
+- Emit canonical site identity key: site_key=buscore.
 - Emit as cross-origin POST from buscore.ca to Lighthouse (not to buscore.ca).
 - Suppress analytics when dev_mode cookie is present.
 - Use sessionStorage dedupe for same-path events within 3 seconds.
@@ -17,13 +19,13 @@ Implemented on site:
 Not implemented on site (by design):
 - No retries.
 - No unload-trigger analytics.
-- No persistent user/session identity.
+- No account identity or fingerprinting identity.
 - No server-side analytics processing.
 
 ## 2) Lighthouse Responsibility (Pending / Next)
 
 Required backend endpoint:
-- Implement and operate POST https://lighthouse.buscore.ca/metrics/pageview.
+- Implement and operate POST https://lighthouse.buscore.ca/metrics/event.
 
 Recommended ingestion responsibilities:
 - Validate request JSON and accepted fields.
@@ -32,7 +34,7 @@ Recommended ingestion responsibilities:
 - Return fast success response for fire-and-forget clients.
 
 Storage and data lifecycle:
-- Persist pageview events or aggregated rollups.
+- Persist events or aggregated rollups.
 - Define retention policy.
 - Define archival/deletion policy.
 
@@ -54,7 +56,7 @@ Smith reporting extensions (requested dependency class):
 ## 3) Suggested Minimal Contract (Lighthouse Side)
 
 Expected input fields from current site emitter:
-- type, client_ts, path, url, referrer, src (optional), utm (optional object), device, viewport, lang, tz.
+- site_key, type, client_ts, path, url, referrer, src (optional), utm (optional object), device, viewport, lang, tz.
 
 Server-enriched fields recommended:
 - received_at (server UTC timestamp)
@@ -63,11 +65,11 @@ Server-enriched fields recommended:
 
 ## 4) Verify Flags for Handoff
 
-- Verify: final Lighthouse accepted schema for https://lighthouse.buscore.ca/metrics/pageview.
+- Verify: final Lighthouse accepted schema for https://lighthouse.buscore.ca/metrics/event.
 - Verify: retention policy and compliance requirements for telemetry storage.
 - Verify: reporting dimensions required by stakeholders before schema lock.
 - Verify: whether Cloudflare analytics and first-party telemetry should be reconciled in a single reporting surface.
 
 Manual validation status:
-- Valid POST requests to https://lighthouse.buscore.ca/metrics/pageview return 204.
+- Valid POST requests to https://lighthouse.buscore.ca/metrics/event return 204.
 - Site responsibility ends at emission; Lighthouse owns ingestion, storage, aggregation, and report shaping.

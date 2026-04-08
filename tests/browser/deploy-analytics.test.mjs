@@ -11,7 +11,7 @@ const workspaceRoot = path.resolve(thisDir, '..', '..');
 const deployRoot = path.join(workspaceRoot, '.deploy');
 const PORT = 4173;
 const BASE_URL = `http://127.0.0.1:${PORT}`;
-const LIGHTHOUSE_ENDPOINT = 'https://lighthouse.buscore.ca/metrics/pageview';
+const LIGHTHOUSE_ENDPOINT = 'https://lighthouse.buscore.ca/metrics/event';
 const CLOUDFLARE_SCRIPT = 'https://static.cloudflareinsights.com/beacon.min.js';
 const SESSION_TIMEOUT_MS = 30 * 60 * 1000;
 
@@ -146,10 +146,12 @@ async function readState(page) {
   }));
 }
 
-function requirePageviewWithFields(item, expectedIsNewUser) {
-  assert.ok(item, 'Expected at least one pageview payload');
-  assert.equal(item.method, 'POST', 'Pageview transport should POST');
+function requireEventWithFields(item, expectedIsNewUser) {
+  assert.ok(item, 'Expected at least one analytics payload');
+  assert.equal(item.method, 'POST', 'Analytics transport should POST');
   assert.ok(item.payload && typeof item.payload === 'object', 'Payload must be JSON object');
+  assert.equal(item.payload.site_key, 'buscore', 'Payload site_key mismatch');
+  assert.equal(item.payload.type, 'page_view', 'Payload type mismatch');
   assert.ok(item.payload.anon_user_id, 'Payload missing anon_user_id');
   assert.ok(item.payload.session_id, 'Payload missing session_id');
   assert.equal(item.payload.is_new_user, expectedIsNewUser, 'Payload is_new_user mismatch');
@@ -178,7 +180,7 @@ async function run() {
       assert.ok(state.bcUid, 'bc_uid cookie should be created');
       assert.ok(state.bcSid, 'bc_sid should be created');
       assert.equal(pageviews.length, 1, 'Expected one pageview request on first load');
-      requirePageviewWithFields(pageviews[0], true);
+      requireEventWithFields(pageviews[0], true);
       assert.equal(pageviews[0].payload.anon_user_id, decodeURIComponent(state.bcUid), 'Payload anon_user_id should match cookie');
       assert.ok(cloudflareLoads.length >= 1, 'Cloudflare script should load when analytics enabled');
 
@@ -203,7 +205,7 @@ async function run() {
       assert.equal(secondState.bcUid, firstState.bcUid, 'bc_uid should persist across pages in same context');
       assert.ok(secondState.bcSid, 'bc_sid should remain present');
       assert.equal(pageviews.length, 2, 'Expected one pageview per distinct path load');
-      requirePageviewWithFields(pageviews[1], false);
+      requireEventWithFields(pageviews[1], false);
       assert.equal(pageviews[1].payload.anon_user_id, decodeURIComponent(firstState.bcUid), 'anon_user_id should remain stable');
 
       mark(name, true, 'Reused bc_uid and emitted is_new_user=false on second page');
@@ -307,7 +309,7 @@ async function run() {
 
       assert.ok(resumed.bcUid, 'bc_uid should be recreated after opt-in on next navigation');
       assert.ok(pageviews.length >= 1, 'Pageview should resume after opt-in');
-      requirePageviewWithFields(pageviews[0], true);
+      requireEventWithFields(pageviews[0], true);
 
       mark(name, true, 'Opt-in cleared preference and resumed continuity/pageviews');
       await context.close();
